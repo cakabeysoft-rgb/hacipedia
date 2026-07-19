@@ -1323,36 +1323,38 @@ body[data-theme="dark"] .start-panel {
   font-size: clamp(1.15rem, 2vw, 1.55rem);
 }
 
-.stats-grid {
+.community-steps {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
   margin: 0;
-  padding: 22px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.community-steps li {
+  min-height: 78px;
+  display: grid;
+  align-content: start;
+  gap: 5px;
+  padding: 14px;
+  border: 1px solid rgba(8, 123, 67, 0.13);
   border-radius: var(--radius);
-  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
 }
 
-.stats-grid div {
-  padding: 0 16px;
-  text-align: center;
-  border-right: 1px solid var(--line);
-}
-
-.stats-grid div:last-child {
-  border-right: 0;
-}
-
-.stats-grid dt {
+.community-steps strong {
   color: var(--ink);
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.25;
 }
 
-.stats-grid dd {
-  margin: 4px 0 0;
+.community-steps span {
   color: var(--muted);
-  font-size: 0.86rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .daily-card {
@@ -1604,6 +1606,11 @@ body[data-theme="dark"] .start-panel {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .bottom-grid,
+  .community-band {
+    grid-template-columns: 1fr;
+  }
+
   .start-options {
     max-width: none;
   }
@@ -1688,13 +1695,9 @@ body[data-theme="dark"] .start-panel {
     flex-direction: column;
   }
 
-  .stats-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px 0;
-  }
-
-  .stats-grid div:nth-child(2) {
-    border-right: 0;
+  .community-steps {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 
@@ -1910,17 +1913,9 @@ body[data-theme="dark"] .start-panel {
     grid-template-columns: 1fr;
   }
 
-  .stats-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px 0;
-  }
-
-  .stats-grid div {
-    border-right: 0;
-  }
-
-  .stats-grid div:nth-child(odd) {
-    border-right: 1px solid var(--line);
+  .community-steps {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .footer-grid {
