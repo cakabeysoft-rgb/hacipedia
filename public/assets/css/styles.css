@@ -775,10 +775,7 @@ body[data-theme="dark"] .hero-bg {
 .hero-grid {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(230px, 0.34fr);
-  gap: 44px;
-  align-items: center;
+  display: block;
   width: min(100% - 52px, 1160px);
   min-height: 380px;
   padding: 30px 0 38px;
@@ -890,7 +887,9 @@ h2 {
 }
 
 .prep-card {
-  justify-self: end;
+  position: absolute;
+  right: calc((min(100vw - 36px, var(--container)) - min(100vw - 88px, 1160px)) / -2);
+  top: 72px;
   width: min(100%, 220px);
   padding: 18px;
   border: 1px solid rgba(16, 32, 25, 0.1);
@@ -1431,8 +1430,31 @@ h2 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 22px;
+  }
+
   .prep-card {
-    display: none;
+    position: static;
+    width: 100%;
+    justify-self: stretch;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px 18px;
+    align-items: center;
+    padding: 16px;
+  }
+
+  .prep-card p {
+    margin-bottom: 0;
+  }
+
+  .prep-card a {
+    grid-column: span 2;
+    padding: 9px 0;
   }
 
   .dashboard-grid {
@@ -1476,10 +1498,6 @@ h2 {
     min-height: 0;
     gap: 22px;
     padding: 34px 0 52px;
-  }
-
-  .prep-card {
-    justify-self: start;
   }
 
   .bottom-grid,
