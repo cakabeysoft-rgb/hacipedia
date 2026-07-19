@@ -2027,6 +2027,28 @@ body[data-theme="dark"] .guide-hero-inner {
   line-height: 1.55;
 }
 
+.dua-audio {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid rgba(8, 123, 67, 0.16);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+}
+
+.dua-audio span {
+  color: var(--green-text);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.dua-audio audio {
+  width: 100%;
+  min-height: 42px;
+  display: block;
+}
+
 .guide-deep {
   display: grid;
   gap: 16px;
