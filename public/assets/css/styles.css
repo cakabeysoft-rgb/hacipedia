@@ -1751,11 +1751,13 @@ body[data-theme="dark"] .guide-hero-inner {
   color: var(--muted);
   font-size: 0.8rem;
   font-weight: 600;
+  line-height: 1.25;
 }
 
 .guide-toc a span {
   width: 22px;
   height: 22px;
+  flex: 0 0 22px;
   display: grid;
   place-items: center;
   border-radius: 50%;
@@ -2225,6 +2227,16 @@ body[data-theme="dark"] .guide-hero-inner {
   object-fit: cover;
 }
 
+.guide-photo-card.is-contain img {
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  background: #f4f6f4;
+}
+
+body[data-theme="dark"] .guide-photo-card.is-contain img {
+  background: rgba(255, 255, 255, 0.06);
+}
+
 .guide-photo-card figcaption {
   padding: 11px 12px 12px;
   color: var(--muted);
@@ -2238,6 +2250,32 @@ body[data-theme="dark"] .guide-hero-inner {
   color: var(--ink);
   font-size: 0.84rem;
   font-weight: 600;
+}
+
+.guide-text-card {
+  display: grid;
+  align-content: center;
+  gap: 10px;
+  min-height: 100%;
+  padding: 18px;
+}
+
+.guide-text-card > span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--mint);
+  color: var(--green-text);
+  font-size: 1.15rem;
+}
+
+.guide-text-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.6;
 }
 
 .guide-note,
