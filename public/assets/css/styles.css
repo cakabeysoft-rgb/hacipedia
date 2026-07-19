@@ -762,14 +762,14 @@ body[data-theme="dark"] .privacy-note p {
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0.28) 58%, rgba(255, 255, 255, 0.04) 100%),
     linear-gradient(180deg, rgba(255, 255, 255, 0) 68%, rgba(247, 250, 248, 0.96) 100%),
-    url("../img/hero-kaaba.png") center / cover no-repeat;
+    url("../img/hero-kaaba-optimized.jpg") center / cover no-repeat;
 }
 
 body[data-theme="dark"] .hero-bg {
   background:
     linear-gradient(90deg, rgba(7, 19, 15, 0.96) 0%, rgba(7, 19, 15, 0.86) 36%, rgba(7, 19, 15, 0.38) 66%, rgba(7, 19, 15, 0.08) 100%),
     linear-gradient(180deg, rgba(7, 19, 15, 0) 68%, rgba(7, 19, 15, 0.96) 100%),
-    url("../img/hero-kaaba.png") center / cover no-repeat;
+    url("../img/hero-kaaba-optimized.jpg") center / cover no-repeat;
 }
 
 .hero-grid {
@@ -889,9 +889,9 @@ h2 {
 .prep-card {
   position: absolute;
   right: calc((min(100vw - 36px, var(--container)) - min(100vw - 88px, 1160px)) / -2);
-  top: 72px;
-  width: min(100%, 220px);
-  padding: 18px;
+  top: 58px;
+  width: min(100%, 230px);
+  padding: 16px;
   border: 1px solid rgba(16, 32, 25, 0.1);
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--surface) 94%, transparent);
@@ -901,29 +901,21 @@ h2 {
 .prep-label {
   display: block;
   color: var(--green-dark);
-  font-size: 0.78rem;
+  font-size: 1.28rem;
   font-weight: 600;
-}
-
-.prep-card strong {
-  display: block;
-  margin-top: 12px;
-  color: var(--ink);
-  font-size: 1.8rem;
-  line-height: 1.05;
-  letter-spacing: 0;
+  line-height: 1.12;
 }
 
 .prep-card p {
-  margin: 8px 0 14px;
+  margin: 7px 0 10px;
   color: var(--muted);
-  font-size: 0.84rem;
+  font-size: 0.8rem;
 }
 
 .prep-card a {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 8px 0;
   border-top: 1px solid var(--line);
   color: var(--green-dark);
   font-weight: 600;
@@ -1002,6 +994,14 @@ h2 {
 
 .dashboard-section {
   padding-top: 26px;
+}
+
+.dashboard-section,
+.start-section,
+.bottom-feature-section,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
 }
 
 .dashboard-grid {
@@ -1155,6 +1155,149 @@ h2 {
 
 .bottom-feature-section {
   padding-top: 12px;
+}
+
+.start-section {
+  padding-top: 10px;
+}
+
+.start-panel {
+  position: relative;
+  overflow: hidden;
+  min-height: 226px;
+  padding: 30px;
+  border: 1px solid rgba(16, 32, 25, 0.1);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.96) 68%, rgba(255, 255, 255, 0.34) 100%),
+    linear-gradient(180deg, rgba(247, 250, 248, 0) 64%, rgba(247, 250, 248, 0.88) 100%),
+    url("../img/masjid-nabawi-start.jpg") right center / auto 100% no-repeat,
+    var(--surface-soft);
+  box-shadow: var(--shadow);
+}
+
+body[data-theme="dark"] .start-panel {
+  background:
+    linear-gradient(90deg, rgba(7, 19, 15, 0.98) 0%, rgba(7, 19, 15, 0.88) 68%, rgba(7, 19, 15, 0.36) 100%),
+    linear-gradient(180deg, rgba(7, 19, 15, 0) 64%, rgba(7, 19, 15, 0.9) 100%),
+    url("../img/masjid-nabawi-start.jpg") right center / auto 100% no-repeat,
+    var(--surface-soft);
+}
+
+.start-copy {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 24px;
+}
+
+.start-copy h2 {
+  font-size: clamp(1.22rem, 1.9vw, 1.5rem);
+  line-height: 1.16;
+}
+
+.start-options {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  max-width: calc(100% - 230px);
+}
+
+.start-options a {
+  min-height: 126px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid rgba(16, 32, 25, 0.1);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface) 96%, transparent);
+  box-shadow: 0 12px 26px rgba(16, 32, 25, 0.07);
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.start-options a::after {
+  content: "→";
+  align-self: end;
+  color: var(--ink);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.start-options a:hover {
+  transform: translateY(-2px);
+  border-color: rgba(8, 123, 67, 0.32);
+  box-shadow: 0 16px 30px rgba(16, 32, 25, 0.1);
+}
+
+.start-options span {
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--mint);
+}
+
+.start-options img {
+  width: 34px;
+  height: 34px;
+  filter: brightness(0) saturate(100%) invert(34%) sepia(49%) saturate(893%) hue-rotate(108deg) brightness(88%) contrast(94%);
+}
+
+.start-options strong {
+  display: block;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.24;
+}
+
+.start-options small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.trust-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.trust-row div {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 14px;
+  row-gap: 5px;
+  align-items: start;
+}
+
+.trust-row img {
+  grid-row: span 2;
+  width: 34px;
+  height: 34px;
+  filter: brightness(0) saturate(100%) invert(34%) sepia(49%) saturate(893%) hue-rotate(108deg) brightness(88%) contrast(94%);
+}
+
+.trust-row strong {
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.trust-row small {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.35;
 }
 
 .bottom-grid {
@@ -1461,6 +1604,10 @@ h2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .start-options {
+    max-width: none;
+  }
+
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1483,14 +1630,14 @@ h2 {
     background:
       linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.86) 100%),
       linear-gradient(180deg, rgba(255, 255, 255, 0) 58%, rgba(247, 250, 248, 0.98) 100%),
-      url("../img/hero-kaaba.png") 62% center / cover no-repeat;
+      url("../img/hero-kaaba-optimized.jpg") 62% center / cover no-repeat;
   }
 
   body[data-theme="dark"] .hero-bg {
     background:
       linear-gradient(90deg, rgba(7, 19, 15, 0.98) 0%, rgba(7, 19, 15, 0.84) 100%),
       linear-gradient(180deg, rgba(7, 19, 15, 0) 58%, rgba(7, 19, 15, 0.98) 100%),
-      url("../img/hero-kaaba.png") 62% center / cover no-repeat;
+      url("../img/hero-kaaba-optimized.jpg") 62% center / cover no-repeat;
   }
 
   .hero-grid {
@@ -1503,6 +1650,33 @@ h2 {
   .bottom-grid,
   .community-band {
     grid-template-columns: 1fr;
+  }
+
+  .start-panel {
+    min-height: 0;
+    padding: 24px;
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.99) 0%, rgba(255, 255, 255, 0.94) 72%, rgba(255, 255, 255, 0.42) 100%),
+      linear-gradient(180deg, rgba(247, 250, 248, 0) 64%, rgba(247, 250, 248, 0.9) 100%),
+      url("../img/masjid-nabawi-start.jpg") right bottom / auto 100% no-repeat,
+      var(--surface-soft);
+  }
+
+  body[data-theme="dark"] .start-panel {
+    background:
+      linear-gradient(90deg, rgba(7, 19, 15, 0.99) 0%, rgba(7, 19, 15, 0.9) 72%, rgba(7, 19, 15, 0.48) 100%),
+      linear-gradient(180deg, rgba(7, 19, 15, 0) 64%, rgba(7, 19, 15, 0.9) 100%),
+      url("../img/masjid-nabawi-start.jpg") right bottom / auto 100% no-repeat,
+      var(--surface-soft);
+  }
+
+  .start-options {
+    grid-template-columns: 1fr;
+    max-width: min(100%, 560px);
+  }
+
+  .trust-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .footer-grid {
@@ -1692,8 +1866,44 @@ h2 {
   }
 
   .community-band,
-  .daily-card {
+  .daily-card,
+  .start-panel {
     padding: 22px;
+  }
+
+  .start-options {
+    grid-template-columns: 1fr;
+    max-width: none;
+  }
+
+  .start-options a {
+    min-height: 106px;
+    grid-template-columns: 54px minmax(0, 1fr) auto;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .start-options span {
+    width: 54px;
+    height: 54px;
+  }
+
+  .start-options img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .start-options strong {
+    font-size: 0.92rem;
+  }
+
+  .start-options small {
+    font-size: 0.73rem;
+  }
+
+  .trust-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .community-band {
