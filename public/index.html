@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hacipedia | Hac ve Umre Bilgi Rehberi</title>
-    <meta name="description" content="Hac ve umre icin rehberler, soru-cevap, ihtiyac listeleri, acil numaralar, doviz araci ve Arapca sozluk.">
+    <title>Hacipedia | Hac ve Umre Hakkında Her Şey</title>
+    <meta name="description" content="Hac ve umre için rehberler, soru-cevap, ihtiyaç listeleri, acil numaralar, döviz aracı, dualar ve Arapça sözlük.">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body>
@@ -13,10 +13,12 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="index.html" aria-label="Hacipedia ana sayfa">
-          <span class="brand-mark">H</span>
+          <span class="brand-mark">
+            <span class="brand-kaaba"></span>
+          </span>
           <span>
             <strong>Hacipedia</strong>
-            <small>Hac ve Umre Ansiklopedisi</small>
+            <small>Hac ve Umre Hakkında Her Şey</small>
           </span>
         </a>
 
@@ -28,192 +30,249 @@
         </button>
 
         <nav class="site-nav" id="site-nav" aria-label="Ana menü">
-          <a href="umre-rehberi.html">Umre Rehberi</a>
-          <a href="hac-rehberi.html">Hac Rehberi</a>
-          <a href="soru-cevap.html">Soru Cevap</a>
+          <a href="index.html">Ana Sayfa</a>
+          <a href="hac-rehberi.html">Hac</a>
+          <a href="umre-rehberi.html">Umre</a>
+          <a href="rehberler.html">Rehberler</a>
+          <a href="soru-cevap.html">Soru & Cevap</a>
+          <a href="dualar.html">Dualar</a>
           <a href="araclar.html">Araçlar</a>
-          <a href="blog.html">Blog</a>
         </nav>
+
+        <div class="header-actions">
+          <a class="icon-action" href="arama.html" aria-label="Ara">⌕</a>
+          <a class="ghost-button" href="giris.html">Giriş Yap</a>
+          <a class="solid-button" href="soru-sor.html">Soru Sor</a>
+        </div>
       </div>
     </header>
 
     <main id="icerik">
       <section class="hero-section">
+        <div class="hero-bg" aria-hidden="true"></div>
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Sadece hac ve umre için bilgi merkezi</p>
-            <h1>Hac ve umre yolculuğunda aradığın bilgiyi hızlıca bul.</h1>
-            <p class="hero-lead">Adım adım rehberler, onaylı soru-cevaplar, ihtiyaç listeleri, acil numaralar, döviz hesaplayıcı ve Arapça pratik sözlük tek yerde.</p>
+            <p class="eyebrow">Hac ve umre için güvenilir bilgi kaynağı</p>
+            <h1>Hac ve Umre Hakkında Doğru Bilgi, Güvenilir Kaynak</h1>
+            <p class="hero-lead">Merak ettiğin konuyu ara, adım adım rehberleri incele, kayıtsız soru sor ve yolculukta lazım olacak araçlara tek yerden ulaş.</p>
 
             <form class="search-panel" action="arama.html" method="get" role="search">
               <label class="sr-only" for="q">Hacipedia'da ara</label>
-              <input id="q" name="q" type="search" placeholder="Örn: ihram, tavaf, umrede saç kesimi..." autocomplete="off">
+              <input id="q" name="q" type="search" placeholder="Hac hakkında ne öğrenmek istiyorsunuz?" autocomplete="off">
               <button type="submit">Ara</button>
             </form>
 
-            <div class="quick-actions" aria-label="Hızlı bağlantılar">
-              <a href="umre-rehberi.html">Umreye başla</a>
-              <a href="hac-rehberi.html">Hac rehberi</a>
-              <a href="soru-sor.html">Soru sor</a>
+            <div class="popular-searches" aria-label="Popüler aramalar">
+              <span>Popüler Aramalar:</span>
+              <a href="arama.html?q=ihram-nasil-yapilir">İhram nasıl yapılır?</a>
+              <a href="arama.html?q=tavaf-nasil-yapilir">Tavaf nasıl yapılır?</a>
+              <a href="arama.html?q=mikat-noktalari">Mikat noktaları</a>
+              <a href="arama.html?q=umre-cesitleri">Umre çeşitleri</a>
             </div>
           </div>
 
-          <aside class="hero-visual" aria-label="Hacipedia öne çıkan bölümler">
-            <div class="route-card">
-              <div class="route-node active">
-                <span>1</span>
-                <strong>Hazırlık</strong>
-                <small>evrak, sağlık, eşya</small>
-              </div>
-              <div class="route-line"></div>
-              <div class="route-node">
-                <span>2</span>
-                <strong>İbadet Akışı</strong>
-                <small>ihram, tavaf, sa'y</small>
-              </div>
-              <div class="route-line"></div>
-              <div class="route-node">
-                <span>3</span>
-                <strong>Pratik Araçlar</strong>
-                <small>liste, döviz, sözlük</small>
-              </div>
-            </div>
+          <aside class="countdown-card" aria-label="Yaklaşan hac bilgisi">
+            <span class="countdown-label">Yaklaşan Hac</span>
+            <strong>152</strong>
+            <small>gün kaldı</small>
+            <p>Hac 2027 hazırlık takvimi</p>
+            <a href="hac-takvimi.html">Tüm tarihleri gör</a>
           </aside>
         </div>
       </section>
 
-      <section class="section">
-        <div class="container split-heading">
-          <div>
-            <p class="eyebrow">Ana rehberler</p>
-            <h2>Hac ve umre için iki net başlangıç noktası</h2>
-          </div>
-          <a class="text-link" href="rehberler.html">Tüm rehberler</a>
-        </div>
-
-        <div class="container guide-grid">
-          <article class="guide-card guide-card-green">
-            <span class="card-kicker">Umre</span>
-            <h3>Umre Rehberi</h3>
-            <p>Hazırlıktan dönüşe kadar umre ibadetini sade, sıralı ve ilk kez gideceklerin anlayacağı şekilde takip et.</p>
-            <ul>
-              <li>İhrama giriş ve mikat</li>
-              <li>Tavaf ve sa'y adımları</li>
-              <li>Umrede sık sorulanlar</li>
-            </ul>
-            <a href="umre-rehberi.html">Umre rehberine git</a>
-          </article>
-
-          <article class="guide-card guide-card-gold">
-            <span class="card-kicker">Hac</span>
-            <h3>Hac Rehberi</h3>
-            <p>Hac çeşitleri, gün gün ibadet akışı ve Arafat-Müzdelife-Mina sürecini derli toplu bir düzende incele.</p>
-            <ul>
-              <li>Hac çeşitleri</li>
-              <li>Gün gün ibadet planı</li>
-              <li>Vacipler ve sık yapılan hatalar</li>
-            </ul>
-            <a href="hac-rehberi.html">Hac rehberine git</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section muted-section">
-        <div class="container tools-layout">
-          <div class="tools-copy">
-            <p class="eyebrow">Pratik alanlar</p>
-            <h2>Yolculukta en çok lazım olacak araçlar</h2>
-            <p>Hacipedia sadece makale okumak için değil; hazırlık, yolculuk ve ibadet sırasında hızlıca kontrol etmek için de tasarlanıyor.</p>
-          </div>
-
-          <div class="tool-grid">
-            <a class="tool-tile" href="ihtiyac-listesi.html">
-              <strong>İhtiyaç Listesi</strong>
-              <span>Hac, umre, kadınlar ve sağlık için ayrı listeler</span>
-            </a>
-            <a class="tool-tile" href="acil-numaralar.html">
-              <strong>Acil Numaralar</strong>
-              <span>Konsolosluk, sağlık ve yerel acil hatlar</span>
-            </a>
-            <a class="tool-tile" href="doviz.html">
-              <strong>Riyal Hesaplayıcı</strong>
-              <span>TRY/SAR pratik dönüşüm aracı</span>
-            </a>
-            <a class="tool-tile" href="arapca-sozluk.html">
-              <strong>Arapça Sözlük</strong>
-              <span>Yolculukta kullanılacak temel kelimeler</span>
-            </a>
-          </div>
+      <section class="shortcut-section" aria-label="Hızlı erişim">
+        <div class="container shortcut-grid">
+          <a class="shortcut-card" href="hac-rehberi.html">
+            <span>▣</span>
+            <strong>Hac Rehberi</strong>
+            <small>Detaylı bilgi</small>
+          </a>
+          <a class="shortcut-card" href="umre-rehberi.html">
+            <span>⌂</span>
+            <strong>Umre Rehberi</strong>
+            <small>Adım adım umre</small>
+          </a>
+          <a class="shortcut-card" href="soru-cevap.html">
+            <span>?</span>
+            <strong>Soru & Cevap</strong>
+            <small>Sorun, cevaplayalım</small>
+          </a>
+          <a class="shortcut-card" href="dualar.html">
+            <span>⌁</span>
+            <strong>Dualar</strong>
+            <small>Arapça, Türkçe, okunuş</small>
+          </a>
+          <a class="shortcut-card" href="araclar.html">
+            <span>▤</span>
+            <strong>Araçlar</strong>
+            <small>Hesaplayıcılar</small>
+          </a>
+          <a class="shortcut-card" href="arapca-sozluk.html">
+            <span>أ</span>
+            <strong>Sözlük</strong>
+            <small>Pratik Arapça</small>
+          </a>
+          <a class="shortcut-card" href="ihtiyac-listesi.html">
+            <span>✓</span>
+            <strong>İhtiyaç Listesi</strong>
+            <small>Kontrol listeleri</small>
+          </a>
+          <a class="shortcut-card" href="acil-numaralar.html">
+            <span>!</span>
+            <strong>Acil Bilgiler</strong>
+            <small>Numaralar ve notlar</small>
+          </a>
         </div>
       </section>
 
-      <section class="section">
-        <div class="container content-grid">
-          <div class="panel">
-            <div class="panel-header">
-              <div>
-                <p class="eyebrow">Soru cevap</p>
-                <h2>Son sorulanlar</h2>
-              </div>
-              <a class="text-link" href="soru-cevap.html">Tüm sorular</a>
+      <section class="section dashboard-section">
+        <div class="container dashboard-grid">
+          <article class="info-card">
+            <div class="card-head">
+              <h2>Son Sorular</h2>
+              <a href="soru-cevap.html">Tümünü gör</a>
             </div>
-
             <div class="question-list">
-              <a href="soru/umrede-tiras-ne-zaman-olunur.html">
-                <span>Umre</span>
-                <strong>Umrede tıraş ne zaman olunur?</strong>
-                <small>Onaylı cevap bekliyor</small>
-              </a>
-              <a href="soru/ihram-yasaklari-nelerdir.html">
+              <a href="soru/ihramliyken-sabun-kullanmak-caiz-mi.html">
                 <span>İhram</span>
-                <strong>İhram yasakları nelerdir?</strong>
-                <small>Cevaplandı</small>
+                <strong>İhramlıyken sabun kullanmak caiz mi?</strong>
+                <small>2 dakika önce</small>
               </a>
-              <a href="soru/arafatta-ne-yapilir.html">
-                <span>Hac</span>
-                <strong>Arafat'ta hangi ibadetler yapılır?</strong>
-                <small>Cevaplandı</small>
+              <a href="soru/adetliyken-umre-yapmak.html">
+                <span>Umre</span>
+                <strong>Adetliyken umre yapmak mümkün mü?</strong>
+                <small>15 dakika önce</small>
               </a>
-            </div>
-
-            <a class="button-primary" href="soru-sor.html">Kayıtsız soru sor</a>
-          </div>
-
-          <aside class="panel">
-            <p class="eyebrow">Bugün okunacaklar</p>
-            <h2>Öne çıkan içerikler</h2>
-            <div class="article-list">
-              <a href="blog/ilk-kez-umreye-gidecekler.html">
-                <strong>İlk kez umreye gidecekler için kısa hazırlık rehberi</strong>
-                <span>7 dk okuma</span>
+              <a href="soru/tavafta-kac-kez-donmek-gerekir.html">
+                <span>Tavaf</span>
+                <strong>Tavafta kaç kez dönmek gerekir?</strong>
+                <small>1 saat önce</small>
               </a>
-              <a href="blog/hacda-sik-yapilan-hatalar.html">
-                <strong>Hacda sık yapılan hatalar ve dikkat edilecekler</strong>
-                <span>9 dk okuma</span>
-              </a>
-              <a href="blog/medinede-ziyaret-yerleri.html">
-                <strong>Medine'de ziyaret yerleri: sade başlangıç listesi</strong>
-                <span>6 dk okuma</span>
+              <a href="soru/mikati-gecince-ne-yapilir.html">
+                <span>Mikat</span>
+                <strong>Mikatı geçince ne yapmak gerekir?</strong>
+                <small>3 saat önce</small>
               </a>
             </div>
-          </aside>
+          </article>
+
+          <article class="info-card">
+            <div class="card-head">
+              <h2>Popüler Rehberler</h2>
+              <a href="rehberler.html">Tümünü gör</a>
+            </div>
+            <div class="media-list">
+              <a href="hac-rehberi.html">
+                <span class="thumb thumb-kaaba"></span>
+                <strong>Hac İbadeti Nasıl Yapılır?</strong>
+                <small>Adım adım hac rehberi</small>
+              </a>
+              <a href="umre-rehberi.html">
+                <span class="thumb thumb-gold"></span>
+                <strong>Umre Rehberi</strong>
+                <small>Hazırlıktan dönüşe kadar</small>
+              </a>
+              <a href="ihram-nasil-giyilir.html">
+                <span class="thumb thumb-green"></span>
+                <strong>İhram Nasıl Giyilir?</strong>
+                <small>Erkek ve kadınlar için notlar</small>
+              </a>
+              <a href="tavaf-nasil-yapilir.html">
+                <span class="thumb thumb-blue"></span>
+                <strong>Tavaf Nasıl Yapılır?</strong>
+                <small>Şavtlar, dualar ve dikkatler</small>
+              </a>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <div class="card-head">
+              <h2>Güncel Bilgiler</h2>
+              <a href="blog.html">Tümünü gör</a>
+            </div>
+            <div class="news-list">
+              <a href="blog/hac-hazirlik-takvimi.html">
+                <strong>Hac hazırlık takviminde nelere dikkat edilmeli?</strong>
+                <small>Bugün</small>
+              </a>
+              <a href="blog/umre-cantasi.html">
+                <strong>Umre çantasında mutlaka olması gerekenler</strong>
+                <small>Dün</small>
+              </a>
+              <a href="blog/medine-ziyaret-yerleri.html">
+                <strong>Medine'de ziyaret yerleri için sade başlangıç listesi</strong>
+                <small>2 gün önce</small>
+              </a>
+              <a href="blog/riyal-hesaplama.html">
+                <strong>Riyal hesabı yaparken pratik notlar</strong>
+                <small>3 gün önce</small>
+              </a>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <div class="card-head">
+              <h2>Hızlı Araçlar</h2>
+              <a href="araclar.html">Tümünü gör</a>
+            </div>
+            <div class="mini-tool-list">
+              <a href="doviz.html">
+                <strong>Riyal Hesaplayıcı</strong>
+                <small>TRY/SAR dönüşüm</small>
+              </a>
+              <a href="ihtiyac-listesi.html">
+                <strong>Yazdırılabilir ihtiyaç listesi</strong>
+                <small>Hac, umre, sağlık</small>
+              </a>
+              <a href="yol-guzergahlari.html">
+                <strong>Yol güzergahları</strong>
+                <small>Mekke, Medine, Mina, Arafat</small>
+              </a>
+              <a href="arapca-sozluk.html">
+                <strong>Arapça pratik sözlük</strong>
+                <small>Kelime, okunuş, anlam</small>
+              </a>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section class="section compact-section">
-        <div class="container index-band">
-          <div>
-            <p class="eyebrow">Ansiklopedi düzeni</p>
-            <h2>Terimler, mekanlar ve ibadet adımları tek dizinde</h2>
-          </div>
-          <div class="index-links">
-            <a href="sozluk/tavaf.html">Tavaf</a>
-            <a href="sozluk/say.html">Sa'y</a>
-            <a href="sozluk/ihram.html">İhram</a>
-            <a href="mekanlar/arafat.html">Arafat</a>
-            <a href="mekanlar/mina.html">Mina</a>
-            <a href="mekanlar/mescid-i-nebevi.html">Mescid-i Nebevi</a>
-          </div>
+      <section class="section bottom-feature-section">
+        <div class="container bottom-grid">
+          <article class="community-band">
+            <div>
+              <p class="eyebrow">Topluluğumuza katılın</p>
+              <h2>Deneyimini paylaş, soruları cevapla, yeni yolculara destek ol.</h2>
+              <a class="solid-button" href="soru-sor.html">Hemen soru sor</a>
+            </div>
+            <dl class="stats-grid">
+              <div>
+                <dt>25.8K</dt>
+                <dd>Okuyucu</dd>
+              </div>
+              <div>
+                <dt>12.4K</dt>
+                <dd>Soru</dd>
+              </div>
+              <div>
+                <dt>58.7K</dt>
+                <dd>Cevap</dd>
+              </div>
+              <div>
+                <dt>1.2M</dt>
+                <dd>Ziyaret</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="dua-card">
+            <p class="eyebrow">Günün Duası</p>
+            <blockquote>
+              "Rabbena atina fid-dunya haseneten ve fil-ahireti haseneten ve kina azaben-nar."
+            </blockquote>
+            <small>Bakara Suresi 2/201</small>
+          </article>
         </div>
       </section>
     </main>
@@ -222,18 +281,18 @@
       <div class="container footer-grid">
         <div>
           <a class="brand footer-brand" href="index.html">
-            <span class="brand-mark">H</span>
+            <span class="brand-mark"><span class="brand-kaaba"></span></span>
             <span>
               <strong>Hacipedia</strong>
-              <small>Hac ve Umre Ansiklopedisi</small>
+              <small>Hac ve Umre Hakkında Her Şey</small>
             </span>
           </a>
           <p>Hac ve umre yolculuğu için sade, hızlı ve düzenli bilgi kaynağı.</p>
         </div>
         <div>
           <h2>Rehberler</h2>
-          <a href="umre-rehberi.html">Umre Rehberi</a>
           <a href="hac-rehberi.html">Hac Rehberi</a>
+          <a href="umre-rehberi.html">Umre Rehberi</a>
           <a href="mekan-rehberi.html">Mekan Rehberi</a>
         </div>
         <div>
@@ -244,7 +303,7 @@
         </div>
         <div>
           <h2>Site</h2>
-          <a href="soru-cevap.html">Soru Cevap</a>
+          <a href="soru-cevap.html">Soru & Cevap</a>
           <a href="blog.html">Blog</a>
           <a href="iletisim.html">İletişim</a>
         </div>
