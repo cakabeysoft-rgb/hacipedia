@@ -148,51 +148,38 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-var talbiyahButton = document.querySelector("#talbiyah-player");
-var talbiyahUtterance = null;
+var youtubeAudioPlayer = document.querySelector("#youtube-audio-player");
+var talbiyahVideoId = "s_GVotx6-2M";
 
-function resetTalbiyahButton() {
-  if (!talbiyahButton) return;
-  talbiyahButton.setAttribute("aria-pressed", "false");
-  talbiyahButton.innerHTML = '<span><img src="assets/icons/player-play.svg" alt="" aria-hidden="true"></span> Lebbeyk dinle';
-  talbiyahUtterance = null;
+function setMusicState(isPlaying) {
+  if (!headerMusicTrigger) return;
+  headerMusicTrigger.setAttribute("aria-pressed", String(isPlaying));
+  headerMusicTrigger.setAttribute("aria-label", isPlaying ? "Lebbeyk sesini durdur" : "Lebbeyk dinle");
 }
 
-if (talbiyahButton) {
-  talbiyahButton.addEventListener("click", function () {
-    if (!("speechSynthesis" in window)) {
-      talbiyahButton.textContent = "Ses desteklenmiyor";
-      return;
-    }
-
-    if (talbiyahButton.getAttribute("aria-pressed") === "true") {
-      window.speechSynthesis.cancel();
-      resetTalbiyahButton();
-      return;
-    }
-
-    talbiyahUtterance = new SpeechSynthesisUtterance(
-      "Lebbeyk Allahümme lebbeyk. Lebbeyke la şerike leke lebbeyk. İnnel hamde ven nimete leke vel mülk. La şerike lek."
-    );
-
-    talbiyahUtterance.lang = "tr-TR";
-    talbiyahUtterance.rate = 0.82;
-    talbiyahUtterance.pitch = 0.92;
-
-    talbiyahButton.setAttribute("aria-pressed", "true");
-    talbiyahButton.innerHTML = '<span><img src="assets/icons/player-stop.svg" alt="" aria-hidden="true"></span> Lebbeyk çalıyor';
-
-    talbiyahUtterance.onend = resetTalbiyahButton;
-    talbiyahUtterance.onerror = resetTalbiyahButton;
-
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(talbiyahUtterance);
-  });
+function stopTalbiyahAudio() {
+  if (!youtubeAudioPlayer) return;
+  youtubeAudioPlayer.removeAttribute("src");
+  setMusicState(false);
 }
 
-if (headerMusicTrigger && talbiyahButton) {
+function playTalbiyahAudio() {
+  if (!youtubeAudioPlayer) return;
+  youtubeAudioPlayer.setAttribute(
+    "src",
+    "https://www.youtube.com/embed/" + talbiyahVideoId + "?autoplay=1&playsinline=1&rel=0"
+  );
+  setMusicState(true);
+}
+
+if (headerMusicTrigger && youtubeAudioPlayer) {
   headerMusicTrigger.addEventListener("click", function () {
-    talbiyahButton.click();
+    if (headerMusicTrigger.getAttribute("aria-pressed") === "true") {
+      stopTalbiyahAudio();
+      return;
+    }
+
+    playTalbiyahAudio();
   });
 }
 

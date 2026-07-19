@@ -240,6 +240,11 @@ input {
   color: var(--ink);
 }
 
+.header-icon-button[aria-pressed="true"] {
+  border-color: rgba(8, 123, 67, 0.34);
+  background: var(--mint);
+}
+
 body[data-theme="dark"] .header-icon-button img,
 body[data-theme="dark"] .shortcut-card img {
   filter: brightness(0) saturate(100%) invert(72%) sepia(35%) saturate(418%) hue-rotate(94deg) brightness(92%) contrast(89%);
@@ -361,6 +366,17 @@ body[data-theme="dark"] .shortcut-card img {
   border-radius: var(--radius);
   color: var(--muted);
   background: var(--surface-soft);
+}
+
+.youtube-audio-player {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .settings-modal {
@@ -882,43 +898,6 @@ h2 {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.82);
   box-shadow: 0 8px 18px rgba(16, 32, 25, 0.06);
-}
-
-.talbiyah-player {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  margin-top: 16px;
-  min-height: 42px;
-  padding: 0 16px;
-  border: 1px solid rgba(8, 123, 67, 0.18);
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--surface) 90%, transparent);
-  color: var(--green-dark);
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 10px 22px rgba(16, 32, 25, 0.07);
-}
-
-.talbiyah-player span {
-  width: 26px;
-  height: 26px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--green);
-  color: #fff;
-}
-
-.talbiyah-player img {
-  width: 15px;
-  height: 15px;
-  filter: brightness(0) invert(1);
-}
-
-.talbiyah-player:hover {
-  transform: translateY(-1px);
-  border-color: rgba(8, 123, 67, 0.36);
 }
 
 .countdown-card {

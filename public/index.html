@@ -47,7 +47,7 @@
           <button class="header-icon-button header-search-trigger" type="button" aria-haspopup="dialog" aria-controls="search-modal" aria-label="Arama yap">
             <img src="assets/icons/search.svg" alt="" aria-hidden="true">
           </button>
-          <button class="header-icon-button" type="button" id="header-music-trigger" aria-label="Lebbeyk dinle">
+          <button class="header-icon-button" type="button" id="header-music-trigger" aria-label="Lebbeyk dinle" aria-pressed="false">
             <img src="assets/icons/music.svg" alt="" aria-hidden="true">
           </button>
           <button class="header-icon-button" type="button" id="settings-trigger" aria-haspopup="dialog" aria-controls="settings-modal" aria-label="Ayarlar">
@@ -144,6 +144,13 @@
       </section>
     </div>
 
+    <iframe
+      class="youtube-audio-player"
+      id="youtube-audio-player"
+      title="Lebbeyk ses oynatıcı"
+      allow="autoplay; encrypted-media"
+      loading="lazy"></iframe>
+
     <main id="icerik">
       <section class="hero-section">
         <div class="hero-bg" aria-hidden="true"></div>
@@ -166,11 +173,6 @@
               <a href="arama.html?q=mikat-noktalari">Mikat noktaları</a>
               <a href="arama.html?q=umre-cesitleri">Umre çeşitleri</a>
             </div>
-
-            <button class="talbiyah-player" type="button" id="talbiyah-player" aria-pressed="false">
-              <span><img src="assets/icons/player-play.svg" alt="" aria-hidden="true"></span>
-              Lebbeyk dinle
-            </button>
           </div>
 
           <aside class="countdown-card" aria-label="Yaklaşan hac bilgisi">
@@ -445,6 +447,6 @@
       </div>
     </footer>
 
-    <script src="assets/js/main.js?v=20260719-3"></script>
+    <script src="assets/js/main.js?v=20260719-4"></script>
   </body>
 </html>
