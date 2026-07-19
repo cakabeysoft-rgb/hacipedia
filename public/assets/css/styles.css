@@ -889,9 +889,9 @@ h2 {
   box-shadow: 0 8px 18px rgba(16, 32, 25, 0.06);
 }
 
-.countdown-card {
+.prep-card {
   justify-self: end;
-  width: min(100%, 198px);
+  width: min(100%, 220px);
   padding: 18px;
   border: 1px solid rgba(16, 32, 25, 0.1);
   border-radius: var(--radius);
@@ -899,40 +899,41 @@ h2 {
   box-shadow: var(--shadow);
 }
 
-.countdown-label {
+.prep-label {
   display: block;
   color: var(--green-dark);
   font-size: 0.78rem;
   font-weight: 600;
 }
 
-.countdown-card strong {
-  display: inline-block;
-  margin-top: 14px;
+.prep-card strong {
+  display: block;
+  margin-top: 12px;
   color: var(--ink);
-  font-size: 2.75rem;
-  line-height: 1;
+  font-size: 1.8rem;
+  line-height: 1.05;
   letter-spacing: 0;
 }
 
-.countdown-card small {
+.prep-card p {
+  margin: 8px 0 14px;
   color: var(--muted);
-  font-weight: 500;
+  font-size: 0.84rem;
 }
 
-.countdown-card p {
-  margin: 8px 0 18px;
-  color: var(--muted);
-  font-size: 0.92rem;
-}
-
-.countdown-card a {
+.prep-card a {
   display: flex;
   justify-content: space-between;
-  padding-top: 14px;
+  padding: 10px 0;
   border-top: 1px solid var(--line);
   color: var(--green-dark);
   font-weight: 600;
+  font-size: 0.82rem;
+}
+
+.prep-card a::after {
+  content: "›";
+  color: var(--gold);
 }
 
 .shortcut-section {
@@ -1430,6 +1431,10 @@ h2 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .prep-card {
+    display: none;
+  }
+
   .dashboard-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1473,7 +1478,7 @@ h2 {
     padding: 34px 0 52px;
   }
 
-  .countdown-card {
+  .prep-card {
     justify-self: start;
   }
 
@@ -1651,7 +1656,7 @@ h2 {
     margin-top: 14px;
   }
 
-  .countdown-card {
+  .prep-card {
     width: 100%;
     justify-self: stretch;
   }
