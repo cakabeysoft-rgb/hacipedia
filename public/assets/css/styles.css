@@ -45,12 +45,16 @@ body {
   line-height: 1.5;
 }
 
-body[data-font-size="small"] {
-  font-size: 13px;
+html[data-font-size="small"] {
+  font-size: 14.5px;
 }
 
-body[data-font-size="large"] {
-  font-size: 15px;
+html[data-font-size="medium"] {
+  font-size: 16px;
+}
+
+html[data-font-size="large"] {
+  font-size: 18px;
 }
 
 body.modal-open {
@@ -364,7 +368,7 @@ body[data-theme="dark"] .shortcut-card img {
   inset: 0;
   z-index: 70;
   display: none;
-  padding: 52px 18px 18px;
+  padding: 70px 18px 18px;
   overflow-y: auto;
 }
 
@@ -381,11 +385,11 @@ body[data-theme="dark"] .shortcut-card img {
 
 .settings-dialog {
   position: relative;
-  width: min(760px, 100%);
+  width: min(520px, 100%);
   margin: 0 auto;
-  padding: 34px;
+  padding: 22px;
   border: 1px solid color-mix(in srgb, var(--line) 72%, transparent);
-  border-radius: 34px;
+  border-radius: 20px;
   background: var(--surface);
   box-shadow: 0 30px 90px rgba(3, 14, 11, 0.36);
 }
@@ -395,24 +399,24 @@ body[data-theme="dark"] .shortcut-card img {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
 }
 
 .settings-head h2 {
-  font-size: 2rem;
+  font-size: 1.45rem;
   font-weight: 600;
 }
 
 .settings-close {
-  width: 58px;
-  height: 58px;
+  width: 42px;
+  height: 42px;
   display: grid;
   place-items: center;
   border: 0;
   border-radius: 50%;
   background: var(--surface-soft);
   color: var(--ink);
-  font-size: 2rem;
+  font-size: 1.45rem;
   line-height: 1;
   cursor: pointer;
 }
@@ -426,9 +430,9 @@ body[data-theme="dark"] .shortcut-card img {
 
 .setting-font-card {
   display: grid;
-  gap: 18px;
-  margin-bottom: 22px;
-  padding: 22px;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 16px;
   background: var(--surface-soft);
 }
 
@@ -447,13 +451,13 @@ body[data-theme="dark"] .shortcut-card img {
 .install-card strong {
   display: block;
   color: var(--ink);
-  font-size: 1.1rem;
+  font-size: 0.98rem;
   font-weight: 600;
 }
 
 .setting-icon {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   flex: 0 0 auto;
   display: grid;
   place-items: center;
@@ -465,8 +469,8 @@ body[data-theme="dark"] .shortcut-card img {
 }
 
 .setting-icon img {
-  width: 24px;
-  height: 24px;
+  width: 21px;
+  height: 21px;
   filter: brightness(0) saturate(100%) invert(35%) sepia(16%) saturate(759%) hue-rotate(177deg) brightness(88%) contrast(85%);
 }
 
@@ -493,14 +497,25 @@ body[data-theme="dark"] .shortcut-card img {
 }
 
 .font-size-control button {
-  min-height: 52px;
+  min-height: 42px;
   border: 0;
   border-radius: 12px;
   background: transparent;
   color: #8a9aaf;
-  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+}
+
+.font-size-control button[data-font-size="small"] {
+  font-size: 0.82rem;
+}
+
+.font-size-control button[data-font-size="medium"] {
+  font-size: 0.95rem;
+}
+
+.font-size-control button[data-font-size="large"] {
+  font-size: 1.08rem;
 }
 
 .font-size-control button.is-active {
@@ -511,12 +526,12 @@ body[data-theme="dark"] .shortcut-card img {
 
 .settings-list {
   display: grid;
-  gap: 16px;
+  gap: 10px;
 }
 
 .setting-row {
-  min-height: 104px;
-  padding: 20px;
+  min-height: 78px;
+  padding: 14px;
   border: 1px solid var(--line);
   background: var(--surface);
 }
@@ -528,17 +543,17 @@ body[data-theme="dark"] .shortcut-card img {
 
 .setting-row small {
   display: block;
-  margin-top: 4px;
+  margin-top: 2px;
   color: #8a9aaf;
-  font-size: 0.92rem;
+  font-size: 0.78rem;
   font-weight: 500;
 }
 
 .switch {
-  width: 64px;
-  height: 36px;
+  width: 52px;
+  height: 30px;
   flex: 0 0 auto;
-  padding: 4px;
+  padding: 3px;
   border: 0;
   border-radius: 999px;
   background: #c8d4e3;
@@ -548,8 +563,8 @@ body[data-theme="dark"] .shortcut-card img {
 
 .switch::before {
   content: "";
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   display: block;
   border-radius: 50%;
   background: #fff;
@@ -562,13 +577,13 @@ body[data-theme="dark"] .shortcut-card img {
 }
 
 .switch[aria-pressed="true"]::before {
-  transform: translateX(28px);
+  transform: translateX(22px);
 }
 
 .privacy-note {
   align-items: flex-start;
-  margin-top: 22px;
-  padding: 22px;
+  margin-top: 14px;
+  padding: 16px;
   border: 1px solid rgba(8, 123, 67, 0.18);
   background: #eafff3;
 }
@@ -578,9 +593,9 @@ body[data-theme="dark"] .privacy-note {
 }
 
 .privacy-note p {
-  margin: 8px 0 0;
+  margin: 5px 0 0;
   color: #047041;
-  font-size: 0.96rem;
+  font-size: 0.82rem;
 }
 
 body[data-theme="dark"] .privacy-note p {
@@ -588,8 +603,8 @@ body[data-theme="dark"] .privacy-note p {
 }
 
 .install-card {
-  margin-top: 22px;
-  padding: 24px;
+  margin-top: 14px;
+  padding: 16px;
   border: 1px solid rgba(245, 159, 0, 0.55);
   background: #0f172a;
   color: #dbe4f0;
@@ -600,34 +615,34 @@ body[data-theme="dark"] .privacy-note p {
 }
 
 .install-row span {
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   flex: 0 0 auto;
   display: grid;
   place-items: center;
 }
 
 .install-row img {
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   filter: brightness(0) saturate(100%) invert(67%) sepia(97%) saturate(1125%) hue-rotate(356deg) brightness(101%) contrast(101%);
 }
 
 .install-card strong {
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .install-card p {
-  margin: 8px 0 0;
+  margin: 5px 0 0;
   color: #d6deea;
-  font-size: 0.96rem;
+  font-size: 0.82rem;
 }
 
 .install-card button {
   width: 100%;
-  min-height: 52px;
-  margin-top: 22px;
+  min-height: 42px;
+  margin-top: 14px;
   border: 0;
   border-radius: 13px;
   background: #f59f00;
@@ -637,10 +652,11 @@ body[data-theme="dark"] .privacy-note p {
 }
 
 .app-version {
-  margin: 28px 0 0;
+  margin: 16px 0 0;
   color: #9aa8bb;
   text-align: center;
   font-weight: 600;
+  font-size: 0.82rem;
 }
 
 .ghost-button {
@@ -1252,41 +1268,41 @@ h2 {
 
 .social-links {
   display: flex;
-  gap: 12px;
+  align-items: center;
+  gap: 16px;
 }
 
 .social-links a {
-  width: 38px;
-  height: 38px;
+  width: 28px;
+  height: 28px;
   display: grid;
   place-items: center;
   border: 0;
-  border-radius: 10px;
-  color: #fff;
+  border-radius: 0;
+  background: transparent;
   transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
 .social-links a:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
 }
 
 .social-links img {
-  width: 21px;
-  height: 21px;
-  filter: brightness(0) invert(1);
+  width: 26px;
+  height: 26px;
 }
 
-.social-links .facebook {
-  background: #1877f2;
+.social-links .facebook img {
+  filter: brightness(0) saturate(100%) invert(39%) sepia(98%) saturate(2245%) hue-rotate(199deg) brightness(96%) contrast(98%);
 }
 
-.social-links .instagram {
-  background: linear-gradient(135deg, #f58529, #dd2a7b 45%, #8134af);
+.social-links .instagram img {
+  filter: brightness(0) saturate(100%) invert(29%) sepia(73%) saturate(3305%) hue-rotate(314deg) brightness(94%) contrast(91%);
 }
 
-.social-links .youtube {
-  background: #ff0033;
+.social-links .youtube img {
+  filter: brightness(0) saturate(100%) invert(18%) sepia(96%) saturate(6442%) hue-rotate(343deg) brightness(101%) contrast(106%);
 }
 
 .site-footer h2 {
@@ -1502,37 +1518,36 @@ h2 {
   }
 
   .settings-dialog {
-    padding: 22px;
-    border-radius: 24px;
+    padding: 18px;
+    border-radius: 18px;
   }
 
   .settings-head h2 {
-    font-size: 1.55rem;
+    font-size: 1.32rem;
   }
 
   .settings-close {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
   }
 
   .font-size-control button {
-    min-height: 46px;
-    font-size: 0.88rem;
+    min-height: 40px;
   }
 
   .setting-row {
     grid-template-columns: auto 1fr auto;
-    min-height: 92px;
-    padding: 16px;
+    min-height: 74px;
+    padding: 12px;
   }
 
   .setting-icon {
-    width: 44px;
-    height: 44px;
+    width: 38px;
+    height: 38px;
   }
 
   .switch {
-    width: 56px;
+    width: 50px;
   }
 
   .switch[aria-pressed="true"]::before {

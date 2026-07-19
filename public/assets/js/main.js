@@ -197,6 +197,7 @@ if (headerMusicTrigger && talbiyahButton) {
 
 function applyFontSize(size) {
   var nextSize = size || "medium";
+  document.documentElement.setAttribute("data-font-size", nextSize);
   document.body.setAttribute("data-font-size", nextSize);
   window.localStorage.setItem("hacipedia-font-size", nextSize);
 
