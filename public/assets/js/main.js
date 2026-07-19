@@ -57,7 +57,22 @@ function syncModalLock() {
 }
 
 var searchableItems = [
-  { title: "Hac rehberi", category: "Hac Rehberi", url: "hac-rehberi.html" },
+  { title: "Hac Nedir?", category: "Hac Rehberi", url: "hac-rehberi.html" },
+  { title: "Hac Kimlere Farzdır?", category: "Hac Rehberi", url: "hac-kimlere-farzdir.html" },
+  { title: "Hac Çeşitleri", category: "Hac Rehberi", url: "hac-cesitleri.html" },
+  { title: "Hac Öncesi Hazırlık", category: "Hac Rehberi", url: "hac-oncesi-hazirlik.html" },
+  { title: "Evrak ve Kayıt Süreci", category: "Hac Rehberi", url: "hac-evrak-kayit.html" },
+  { title: "İhram", category: "Hac Rehberi", url: "ihram.html" },
+  { title: "Mikat", category: "Hac Rehberi", url: "mikat.html" },
+  { title: "Tavaf", category: "Hac Rehberi", url: "tavaf.html" },
+  { title: "Sa'y", category: "Hac Rehberi", url: "say.html" },
+  { title: "Arafat", category: "Hac Rehberi", url: "arafat.html" },
+  { title: "Müzdelife", category: "Hac Rehberi", url: "muzdelife.html" },
+  { title: "Mina ve Şeytan Taşlama", category: "Hac Rehberi", url: "mina-seytan-taslama.html" },
+  { title: "Kurban", category: "Hac Rehberi", url: "kurban.html" },
+  { title: "Tıraş / İhramdan Çıkış", category: "Hac Rehberi", url: "tiras-ihramdan-cikis.html" },
+  { title: "Veda Tavafı", category: "Hac Rehberi", url: "veda-tavafi.html" },
+  { title: "Hac Sonrası", category: "Hac Rehberi", url: "hac-sonrasi.html" },
   { title: "İhram nasıl giyilir?", category: "Hac Rehberi", url: "ihram-nasil-giyilir.html" },
   { title: "Tavaf nasıl yapılır?", category: "Umre Rehberi", url: "tavaf-nasil-yapilir.html" },
   { title: "Mikat noktaları nelerdir?", category: "Bilgi Merkezi", url: "mikat-noktalari.html" },
