@@ -30,6 +30,7 @@ var closeSettingsButtons = document.querySelectorAll("[data-close-settings]");
 var themeToggle = document.querySelector("#theme-toggle");
 var themeIcon = document.querySelector("#theme-icon");
 var notificationToggle = document.querySelector("#notification-toggle");
+var notificationStatus = document.querySelector("#notification-status");
 var fontSizeButtons = document.querySelectorAll("[data-font-size]");
 var headerMusicTrigger = document.querySelector("#header-music-trigger");
 
@@ -238,10 +239,84 @@ if (themeToggle) {
   });
 }
 
+function setNotificationUi(state) {
+  if (!notificationToggle || !notificationStatus) return;
+
+  var isOn = state === "granted";
+  notificationToggle.setAttribute("aria-pressed", String(isOn));
+  notificationToggle.setAttribute("aria-label", isOn ? "Bildirimleri kapat" : "Bildirimleri aç");
+
+  notificationStatus.classList.toggle("is-on", isOn);
+  notificationStatus.classList.toggle("is-blocked", state === "denied" || state === "unsupported");
+
+  if (state === "granted") {
+    notificationStatus.textContent = "Açık";
+  } else if (state === "denied") {
+    notificationStatus.textContent = "Tarayıcıdan engelli";
+  } else if (state === "unsupported") {
+    notificationStatus.textContent = "Desteklenmiyor";
+  } else {
+    notificationStatus.textContent = "Kapalı";
+  }
+}
+
+function showHacipediaNotification(title, body) {
+  if (!("Notification" in window) || Notification.permission !== "granted") return;
+
+  new Notification(title, {
+    body: body,
+    icon: "assets/icons/bell.svg",
+    tag: "hacipedia-update"
+  });
+}
+
+function syncNotificationPreference() {
+  if (!notificationToggle) return;
+
+  if (!("Notification" in window)) {
+    setNotificationUi("unsupported");
+    return;
+  }
+
+  if (Notification.permission === "granted" && window.localStorage.getItem("hacipedia-notifications") === "on") {
+    setNotificationUi("granted");
+    return;
+  }
+
+  setNotificationUi(Notification.permission === "denied" ? "denied" : "default");
+}
+
+syncNotificationPreference();
+
 if (notificationToggle) {
   notificationToggle.addEventListener("click", function () {
-    var isOn = notificationToggle.getAttribute("aria-pressed") === "true";
-    notificationToggle.setAttribute("aria-pressed", String(!isOn));
+    if (!("Notification" in window)) {
+      setNotificationUi("unsupported");
+      return;
+    }
+
+    if (notificationToggle.getAttribute("aria-pressed") === "true") {
+      window.localStorage.setItem("hacipedia-notifications", "off");
+      setNotificationUi("default");
+      return;
+    }
+
+    var permissionRequest = Notification.requestPermission();
+
+    if (!permissionRequest || typeof permissionRequest.then !== "function") {
+      return;
+    }
+
+    permissionRequest.then(function (permission) {
+      if (permission === "granted") {
+        window.localStorage.setItem("hacipedia-notifications", "on");
+        setNotificationUi("granted");
+        showHacipediaNotification("Hacipedia bildirimleri açık", "Yeni rehber, blog ve hazırlık notlarını buradan duyuracağız.");
+      } else {
+        window.localStorage.setItem("hacipedia-notifications", "off");
+        setNotificationUi(permission);
+      }
+    });
   });
 }
 

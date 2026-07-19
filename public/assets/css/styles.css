@@ -576,6 +576,28 @@ body[data-theme="dark"] .shortcut-card img {
   font-weight: 500;
 }
 
+.notification-status {
+  display: inline-flex;
+  margin-top: 7px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.notification-status.is-on {
+  background: var(--mint);
+  color: var(--green-dark);
+}
+
+.notification-status.is-blocked {
+  background: #fff2d8;
+  color: #8a5d16;
+}
+
 .switch {
   width: 52px;
   height: 30px;
