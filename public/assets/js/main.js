@@ -111,6 +111,14 @@ document.addEventListener("keydown", function (event) {
 });
 
 var talbiyahButton = document.querySelector("#talbiyah-player");
+var talbiyahUtterance = null;
+
+function resetTalbiyahButton() {
+  if (!talbiyahButton) return;
+  talbiyahButton.setAttribute("aria-pressed", "false");
+  talbiyahButton.innerHTML = "<span>▶</span> Lebbeyk dinle";
+  talbiyahUtterance = null;
+}
 
 if (talbiyahButton) {
   talbiyahButton.addEventListener("click", function () {
@@ -119,24 +127,28 @@ if (talbiyahButton) {
       return;
     }
 
-    window.speechSynthesis.cancel();
-    var utterance = new SpeechSynthesisUtterance(
+    if (talbiyahButton.getAttribute("aria-pressed") === "true") {
+      window.speechSynthesis.cancel();
+      resetTalbiyahButton();
+      return;
+    }
+
+    talbiyahUtterance = new SpeechSynthesisUtterance(
       "Lebbeyk Allahümme lebbeyk. Lebbeyke la şerike leke lebbeyk. İnnel hamde ven nimete leke vel mülk. La şerike lek."
     );
 
-    utterance.lang = "tr-TR";
-    utterance.rate = 0.82;
-    utterance.pitch = 0.92;
+    talbiyahUtterance.lang = "tr-TR";
+    talbiyahUtterance.rate = 0.82;
+    talbiyahUtterance.pitch = 0.92;
 
     talbiyahButton.setAttribute("aria-pressed", "true");
     talbiyahButton.innerHTML = "<span>■</span> Lebbeyk çalıyor";
 
-    utterance.onend = function () {
-      talbiyahButton.setAttribute("aria-pressed", "false");
-      talbiyahButton.innerHTML = "<span>▶</span> Lebbeyk dinle";
-    };
+    talbiyahUtterance.onend = resetTalbiyahButton;
+    talbiyahUtterance.onerror = resetTalbiyahButton;
 
-    window.speechSynthesis.speak(utterance);
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(talbiyahUtterance);
   });
 }
 
