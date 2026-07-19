@@ -1500,14 +1500,14 @@ h2 {
 
 @media (max-width: 620px) {
   .header-inner {
-    min-height: 88px;
-    grid-template-columns: auto 1fr auto;
-    gap: 8px 10px;
-    padding: 8px 0;
+    min-height: 68px;
+    grid-template-columns: minmax(0, auto) 1fr;
+    gap: 8px;
+    padding: 6px 0;
   }
 
   .brand strong {
-    font-size: 1.28rem;
+    font-size: 1.14rem;
   }
 
   .brand small {
@@ -1515,30 +1515,43 @@ h2 {
   }
 
   .brand-mark {
-    width: 42px;
-    height: 36px;
+    width: 36px;
+    height: 32px;
   }
 
   .brand-kaaba {
-    width: 27px;
-    height: 22px;
+    width: 23px;
+    height: 19px;
   }
 
   .menu-toggle {
-    grid-column: 3;
-    grid-row: 1;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 auto;
+  }
+
+  .menu-toggle span:not(.sr-only) {
+    width: 15px;
+    margin: 2px auto;
   }
 
   .header-actions {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    justify-content: center;
-    gap: 6px;
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: end;
+    gap: 5px;
   }
 
   .header-icon-button {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .header-icon-button img {
+    width: 15px;
+    height: 15px;
   }
 
   .header-actions .solid-button {
@@ -1546,7 +1559,7 @@ h2 {
   }
 
   .site-nav {
-    top: 104px;
+    top: 76px;
     left: 14px;
     right: 14px;
   }
@@ -1603,7 +1616,10 @@ h2 {
     width: 100%;
   }
 
-  .shortcut-grid,
+  .shortcut-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .dashboard-grid {
     grid-template-columns: 1fr;
   }
@@ -1638,15 +1654,15 @@ h2 {
   }
 
   .shortcut-card {
-    min-height: 92px;
-    grid-template-columns: auto 1fr;
-    justify-items: start;
-    text-align: left;
-    padding: 14px;
+    min-height: 112px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    padding: 14px 10px;
   }
 
   .shortcut-card small {
-    grid-column: 2;
+    grid-column: auto;
   }
 
   .community-band,
@@ -1654,11 +1670,40 @@ h2 {
     padding: 22px;
   }
 
-  .stats-grid {
+  .community-band {
     grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 0;
   }
 
   .stats-grid div {
     border-right: 0;
+  }
+
+  .stats-grid div:nth-child(odd) {
+    border-right: 1px solid var(--line);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 20px;
+  }
+
+  .footer-about {
+    grid-column: span 2;
+  }
+
+  .newsletter {
+    grid-column: auto;
+  }
+
+  .newsletter input,
+  .newsletter button {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 0.78rem;
   }
 }
