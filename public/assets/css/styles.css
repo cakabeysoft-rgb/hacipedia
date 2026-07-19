@@ -2609,6 +2609,10 @@ body[data-theme="dark"] .guide-hero-inner {
     grid-template-columns: 1fr;
   }
 
+  .guide-toc strong {
+    display: none;
+  }
+
   .guide-visual {
     min-height: 170px;
   }
@@ -2884,6 +2888,10 @@ body[data-theme="dark"] .guide-hero-inner {
 
   .guide-layout {
     gap: 14px;
+  }
+
+  .guide-left {
+    top: 68px;
   }
 
   .guide-pager {
