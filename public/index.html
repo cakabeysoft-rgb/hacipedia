@@ -57,7 +57,7 @@
         </a>
 
         <nav class="site-nav" id="site-nav" aria-label="Ana menü">
-          <a href="index.html" target="_blank" rel="noopener">Ana Sayfa</a>
+          <a href="index.html" aria-current="page" target="_blank" rel="noopener">Ana Sayfa</a>
           <a href="hac-rehberi.html" target="_blank" rel="noopener">Hac</a>
           <a href="umre-rehberi.html" target="_blank" rel="noopener">Umre</a>
           <a href="rehberler.html" target="_blank" rel="noopener">Bilgi Merkezi</a>
@@ -79,7 +79,7 @@
             <img src="assets/icons/settings.svg" alt="" aria-hidden="true">
           </button>
           <a class="solid-button" href="soru-sor.html" target="_blank" rel="noopener">Soru Sor</a>
-          <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false">
+          <button class="menu-toggle" type="button" aria-haspopup="dialog" aria-controls="menu-modal" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
@@ -88,6 +88,30 @@
         </div>
       </div>
     </header>
+
+    <div class="menu-modal" id="menu-modal" aria-hidden="true">
+      <div class="menu-backdrop" data-close-menu></div>
+      <section class="menu-dialog" role="dialog" aria-modal="true" aria-labelledby="menu-modal-title">
+        <div class="menu-head">
+          <div>
+            <p class="eyebrow">Hac ve Umre Hakkında Her Şey</p>
+            <h2 id="menu-modal-title">Hacipedia</h2>
+          </div>
+          <button class="menu-close" type="button" data-close-menu aria-label="Menüyü kapat">×</button>
+        </div>
+        <nav class="menu-drawer-nav" aria-label="Mobil menü">
+          <a href="index.html" aria-current="page" target="_blank" rel="noopener">Ana Sayfa</a>
+          <a href="hac-rehberi.html" target="_blank" rel="noopener">Hac</a>
+          <a href="umre-rehberi.html" target="_blank" rel="noopener">Umre</a>
+          <a href="rehberler.html" target="_blank" rel="noopener">Bilgi Merkezi</a>
+          <a href="soru-cevap.html" target="_blank" rel="noopener">Soru & Cevap</a>
+          <a href="topluluk.html" target="_blank" rel="noopener">Topluluk</a>
+          <a href="dualar.html" target="_blank" rel="noopener">Dualar</a>
+          <a href="blog.html" target="_blank" rel="noopener">Blog</a>
+          <a href="araclar.html" target="_blank" rel="noopener">Araçlar</a>
+        </nav>
+      </section>
+    </div>
 
     <div class="search-modal" id="search-modal" aria-hidden="true">
       <div class="search-backdrop" data-close-search></div>

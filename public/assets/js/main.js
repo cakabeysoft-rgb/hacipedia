@@ -1,12 +1,26 @@
 var menuButton = document.querySelector(".menu-toggle");
 var siteNav = document.querySelector("#site-nav");
+var menuModal = document.querySelector("#menu-modal");
+var closeMenuButtons = document.querySelectorAll("[data-close-menu]");
 
-if (menuButton && siteNav) {
-  menuButton.addEventListener("click", function () {
-    var isOpen = siteNav.classList.toggle("is-open");
-    menuButton.setAttribute("aria-expanded", String(isOpen));
-    syncModalLock();
-  });
+function closeMenu() {
+  if (!menuModal || !menuButton) return;
+  menuModal.classList.remove("is-open");
+  menuModal.setAttribute("aria-hidden", "true");
+  menuButton.setAttribute("aria-expanded", "false");
+  syncModalLock();
+}
+
+function toggleMenu() {
+  if (!menuModal || !menuButton) return;
+  var isOpen = menuModal.classList.toggle("is-open");
+  menuModal.setAttribute("aria-hidden", String(!isOpen));
+  menuButton.setAttribute("aria-expanded", String(isOpen));
+  syncModalLock();
+}
+
+if (menuButton && menuModal) {
+  menuButton.addEventListener("click", toggleMenu);
 }
 
 var searchInput = document.querySelector("#q");
@@ -38,7 +52,7 @@ var headerMusicTrigger = document.querySelector("#header-music-trigger");
 function syncModalLock() {
   var hasOpenSearch = searchModal && searchModal.classList.contains("is-open");
   var hasOpenSettings = settingsModal && settingsModal.classList.contains("is-open");
-  var hasOpenMenu = siteNav && siteNav.classList.contains("is-open");
+  var hasOpenMenu = menuModal && menuModal.classList.contains("is-open");
   document.body.classList.toggle("modal-open", Boolean(hasOpenSearch || hasOpenSettings || hasOpenMenu));
 }
 
@@ -121,6 +135,10 @@ Array.prototype.forEach.call(closeSearchButtons, function (button) {
   button.addEventListener("click", closeSearch);
 });
 
+Array.prototype.forEach.call(closeMenuButtons, function (button) {
+  button.addEventListener("click", closeMenu);
+});
+
 function openSettings() {
   if (!settingsModal) return;
   settingsModal.classList.add("is-open");
@@ -147,11 +165,7 @@ document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     closeSearch();
     closeSettings();
-    if (siteNav && menuButton) {
-      siteNav.classList.remove("is-open");
-      menuButton.setAttribute("aria-expanded", "false");
-      syncModalLock();
-    }
+    closeMenu();
   }
 });
 

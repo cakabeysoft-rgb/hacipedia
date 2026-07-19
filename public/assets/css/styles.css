@@ -368,7 +368,8 @@ body[data-theme="dark"] .shortcut-card img {
   background: var(--surface-soft);
 }
 
-.settings-modal {
+.settings-modal,
+.menu-modal {
   position: fixed;
   inset: 0;
   z-index: 70;
@@ -377,11 +378,13 @@ body[data-theme="dark"] .shortcut-card img {
   overflow-y: auto;
 }
 
-.settings-modal.is-open {
+.settings-modal.is-open,
+.menu-modal.is-open {
   display: block;
 }
 
-.settings-backdrop {
+.settings-backdrop,
+.menu-backdrop {
   position: fixed;
   inset: 0;
   background: rgba(3, 18, 14, 0.42);
@@ -401,10 +404,35 @@ body[data-theme="dark"] .shortcut-card img {
   animation: settingsPanelIn 180ms ease-out;
 }
 
+.menu-dialog {
+  position: relative;
+  width: min(420px, 100%);
+  min-height: calc(100vh - 28px);
+  margin-right: auto;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 22px 0 70px rgba(3, 14, 11, 0.26);
+  animation: menuPanelIn 180ms ease-out;
+}
+
 @keyframes settingsPanelIn {
   from {
     opacity: 0;
     transform: translateX(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes menuPanelIn {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
   }
 
   to {
@@ -423,12 +451,28 @@ body[data-theme="dark"] .shortcut-card img {
   border-bottom: 1px solid var(--line);
 }
 
+.menu-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
 .settings-head h2 {
   font-size: 1.3rem;
   font-weight: 600;
 }
 
-.settings-close {
+.menu-head h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.settings-close,
+.menu-close {
   width: 36px;
   height: 36px;
   display: grid;
@@ -440,6 +484,37 @@ body[data-theme="dark"] .shortcut-card img {
   font-size: 1.25rem;
   line-height: 1;
   cursor: pointer;
+}
+
+.menu-drawer-nav {
+  display: grid;
+  gap: 10px;
+}
+
+.menu-drawer-nav a {
+  display: block;
+  padding: 14px 15px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 8px 18px rgba(16, 32, 25, 0.045);
+  font-size: 0.96rem;
+  font-weight: 500;
+}
+
+.menu-drawer-nav a[aria-current="page"] {
+  border-color: rgba(8, 123, 67, 0.28);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--mint) 82%, var(--surface)), var(--mint));
+  color: var(--green-dark);
+  box-shadow: 0 10px 22px rgba(8, 123, 67, 0.12);
+}
+
+.menu-drawer-nav a:hover,
+.menu-drawer-nav a:focus-visible {
+  border-color: rgba(8, 123, 67, 0.28);
+  background: var(--surface-soft);
+  color: var(--green-dark);
+  outline: none;
 }
 
 .setting-font-card,
@@ -743,6 +818,19 @@ body[data-theme="dark"] .privacy-note p {
   height: 2px;
   margin: 4px auto;
   background: var(--ink);
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:not(.sr-only):nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:not(.sr-only):nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:not(.sr-only):nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 .hero-section {
@@ -1550,53 +1638,7 @@ body[data-theme="dark"] .start-panel {
   }
 
   .site-nav {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 40;
-    width: min(86vw, 360px);
-    height: 100vh;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 4px;
-    padding: 86px 18px 24px;
-    border-right: 1px solid var(--line);
-    background: var(--surface);
-    box-shadow: 24px 0 60px rgba(16, 32, 25, 0.2);
-    transform: translateX(-105%);
-    transition: transform 180ms ease;
-  }
-
-  .site-nav.is-open {
-    transform: translateX(0);
-  }
-
-  .site-nav::before {
-    content: "Menü";
-    position: absolute;
-    left: 18px;
-    top: 24px;
-    color: var(--ink);
-    font-size: 1.15rem;
-    font-weight: 600;
-  }
-
-  .site-nav a {
-    display: block;
-    padding: 14px 12px;
-    border: 1px solid transparent;
-    background: transparent;
-    font-size: 0.96rem;
-  }
-
-  .site-nav a:hover,
-  .site-nav a:focus-visible {
-    border-color: rgba(8, 123, 67, 0.14);
-    background: var(--surface-soft);
+    display: none;
   }
 
   .header-actions {
