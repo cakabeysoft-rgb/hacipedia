@@ -44,11 +44,30 @@
         </nav>
 
         <div class="header-actions">
-          <a class="icon-action" href="arama.html" aria-label="Ara">⌕</a>
+          <button class="header-search-trigger" type="button" aria-haspopup="dialog" aria-controls="search-modal">
+            <span>⌕</span>
+            <small>Arama yap</small>
+          </button>
           <a class="solid-button" href="soru-sor.html">Soru Sor</a>
         </div>
       </div>
     </header>
+
+    <div class="search-modal" id="search-modal" aria-hidden="true">
+      <div class="search-backdrop" data-close-search></div>
+      <section class="search-dialog" role="dialog" aria-modal="true" aria-labelledby="search-modal-title">
+        <div class="search-dialog-head">
+          <div>
+            <p class="eyebrow">Hacipedia arama</p>
+            <h2 id="search-modal-title">Ne öğrenmek istiyorsunuz?</h2>
+          </div>
+          <button class="search-close" type="button" data-close-search aria-label="Aramayı kapat">×</button>
+        </div>
+        <label class="sr-only" for="modal-search-input">Arama kelimesi</label>
+        <input id="modal-search-input" type="search" placeholder="İhram, tavaf, sa'y, mikat..." autocomplete="off">
+        <div class="search-suggestions" id="search-suggestions" aria-live="polite"></div>
+      </section>
+    </div>
 
     <main id="icerik">
       <section class="hero-section">
@@ -72,6 +91,11 @@
               <a href="arama.html?q=mikat-noktalari">Mikat noktaları</a>
               <a href="arama.html?q=umre-cesitleri">Umre çeşitleri</a>
             </div>
+
+            <button class="talbiyah-player" type="button" id="talbiyah-player" aria-pressed="false">
+              <span>▶</span>
+              Lebbeyk dinle
+            </button>
           </div>
 
           <aside class="countdown-card" aria-label="Yaklaşan hac bilgisi">
@@ -79,7 +103,7 @@
             <strong>152</strong>
             <small>gün kaldı</small>
             <p>Hac 2027 hazırlık takvimi</p>
-            <a href="hac-takvimi.html">Tüm tarihleri gör</a>
+            <a href="https://hacumre.diyanet.gov.tr/" target="_blank" rel="noopener">Tüm tarihleri gör</a>
           </aside>
         </div>
       </section>
@@ -347,6 +371,6 @@
       </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=20260719-2"></script>
   </body>
 </html>

@@ -1,17 +1,17 @@
-const menuButton = document.querySelector(".menu-toggle");
-const siteNav = document.querySelector("#site-nav");
+var menuButton = document.querySelector(".menu-toggle");
+var siteNav = document.querySelector("#site-nav");
 
 if (menuButton && siteNav) {
-  menuButton.addEventListener("click", () => {
-    const isOpen = siteNav.classList.toggle("is-open");
+  menuButton.addEventListener("click", function () {
+    var isOpen = siteNav.classList.toggle("is-open");
     menuButton.setAttribute("aria-expanded", String(isOpen));
   });
 }
 
-const searchInput = document.querySelector("#q");
+var searchInput = document.querySelector("#q");
 
 if (searchInput) {
-  searchInput.addEventListener("keydown", (event) => {
+  searchInput.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
       searchInput.value = "";
       searchInput.blur();
@@ -19,49 +19,170 @@ if (searchInput) {
   });
 }
 
-const dailyContents = [
+var searchModal = document.querySelector("#search-modal");
+var searchTrigger = document.querySelector(".header-search-trigger");
+var modalSearchInput = document.querySelector("#modal-search-input");
+var searchSuggestions = document.querySelector("#search-suggestions");
+var closeSearchButtons = document.querySelectorAll("[data-close-search]");
+
+var searchableItems = [
+  { title: "İhram nasıl giyilir?", category: "Hac Rehberi", url: "ihram-nasil-giyilir.html" },
+  { title: "Tavaf nasıl yapılır?", category: "Umre Rehberi", url: "tavaf-nasil-yapilir.html" },
+  { title: "Mikat noktaları nelerdir?", category: "Bilgi Merkezi", url: "mikat-noktalari.html" },
+  { title: "Umrede tıraş ne zaman olunur?", category: "Soru & Cevap", url: "soru/umrede-tiras-ne-zaman-olunur.html" },
+  { title: "Riyal hesaplayıcı", category: "Araçlar", url: "doviz.html" },
+  { title: "Hac ve umre ihtiyaç listesi", category: "Araçlar", url: "ihtiyac-listesi.html" },
+  { title: "Arapça pratik sözlük", category: "Sözlük", url: "arapca-sozluk.html" }
+];
+
+function lowerTr(value) {
+  return value.toLocaleLowerCase("tr");
+}
+
+function renderSearchResults(query) {
+  if (!searchSuggestions) return;
+
+  var normalizedQuery = lowerTr((query || "").trim());
+  var html = "";
+  var resultCount = 0;
+
+  searchableItems.forEach(function (item) {
+    var haystack = lowerTr(item.title + " " + item.category);
+    if (resultCount >= 5 || (normalizedQuery && haystack.indexOf(normalizedQuery) === -1)) {
+      return;
+    }
+
+    html += '<a class="search-result" href="' + item.url + '">';
+    html += "<strong>" + item.title + "</strong>";
+    html += "<span>" + item.category + "</span>";
+    html += "</a>";
+    resultCount += 1;
+  });
+
+  if (!html) {
+    html = '<p class="search-empty">Sonuç bulunamadı. Farklı bir kelime deneyin.</p>';
+  }
+
+  searchSuggestions.innerHTML = html;
+}
+
+function openSearch() {
+  if (!searchModal || !modalSearchInput) return;
+  searchModal.classList.add("is-open");
+  searchModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  renderSearchResults("");
+  window.setTimeout(function () {
+    modalSearchInput.focus();
+  }, 40);
+}
+
+function closeSearch() {
+  if (!searchModal) return;
+  searchModal.classList.remove("is-open");
+  searchModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+if (searchTrigger && searchModal) {
+  searchTrigger.addEventListener("click", openSearch);
+}
+
+if (modalSearchInput) {
+  modalSearchInput.addEventListener("input", function () {
+    renderSearchResults(modalSearchInput.value);
+  });
+
+  modalSearchInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" && modalSearchInput.value.trim()) {
+      window.location.href = "arama.html?q=" + encodeURIComponent(modalSearchInput.value.trim());
+    }
+  });
+}
+
+Array.prototype.forEach.call(closeSearchButtons, function (button) {
+  button.addEventListener("click", closeSearch);
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeSearch();
+  }
+});
+
+var talbiyahButton = document.querySelector("#talbiyah-player");
+
+if (talbiyahButton) {
+  talbiyahButton.addEventListener("click", function () {
+    if (!("speechSynthesis" in window)) {
+      talbiyahButton.textContent = "Ses desteklenmiyor";
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    var utterance = new SpeechSynthesisUtterance(
+      "Lebbeyk Allahümme lebbeyk. Lebbeyke la şerike leke lebbeyk. İnnel hamde ven nimete leke vel mülk. La şerike lek."
+    );
+
+    utterance.lang = "tr-TR";
+    utterance.rate = 0.82;
+    utterance.pitch = 0.92;
+
+    talbiyahButton.setAttribute("aria-pressed", "true");
+    talbiyahButton.innerHTML = "<span>■</span> Lebbeyk çalıyor";
+
+    utterance.onend = function () {
+      talbiyahButton.setAttribute("aria-pressed", "false");
+      talbiyahButton.innerHTML = "<span>▶</span> Lebbeyk dinle";
+    };
+
+    window.speechSynthesis.speak(utterance);
+  });
+}
+
+var dailyContents = [
   {
     verse: '"Rabbena atina fid-dunya haseneten ve fil-ahireti haseneten ve kina azaben-nar."',
     verseSource: "Bakara Suresi 2/201",
     hadith: '"Ameller ancak niyetlere göredir."',
-    hadithSource: "Buhari, Bedu'l-vahy 1",
+    hadithSource: "Buhari, Bedu'l-vahy 1"
   },
   {
     verse: '"Şüphesiz güçlükle beraber bir kolaylık vardır."',
     verseSource: "İnşirah Suresi 94/6",
     hadith: '"Kolaylaştırın, zorlaştırmayın; müjdeleyin, nefret ettirmeyin."',
-    hadithSource: "Buhari, İlim 11",
+    hadithSource: "Buhari, İlim 11"
   },
   {
     verse: '"Allah sabredenlerle beraberdir."',
     verseSource: "Bakara Suresi 2/153",
     hadith: '"Temizlik imanın yarısıdır."',
-    hadithSource: "Müslim, Taharet 1",
+    hadithSource: "Müslim, Taharet 1"
   },
   {
     verse: '"Beni anın ki ben de sizi anayım."',
     verseSource: "Bakara Suresi 2/152",
     hadith: '"Müslüman, elinden ve dilinden insanların güvende olduğu kimsedir."',
-    hadithSource: "Tirmizi, İman 12",
+    hadithSource: "Tirmizi, İman 12"
   },
   {
-    verse: '"Kim Allah'a tevekkül ederse, O kendisine yeter."',
+    verse: "\"Kim Allah'a tevekkül ederse, O kendisine yeter.\"",
     verseSource: "Talak Suresi 65/3",
     hadith: '"Allah, yapılan işi güzel yapanı sever."',
-    hadithSource: "Beyhaki, Şuabü'l-iman",
-  },
+    hadithSource: "Beyhaki, Şuabu'l-iman"
+  }
 ];
 
-const verseText = document.querySelector("#daily-verse-text");
-const verseSource = document.querySelector("#daily-verse-source");
-const hadithText = document.querySelector("#daily-hadith-text");
-const hadithSource = document.querySelector("#daily-hadith-source");
+var verseText = document.querySelector("#daily-verse-text");
+var verseSource = document.querySelector("#daily-verse-source");
+var hadithText = document.querySelector("#daily-hadith-text");
+var hadithSource = document.querySelector("#daily-hadith-source");
 
 if (verseText && verseSource && hadithText && hadithSource) {
-  const now = new Date();
-  const startOfYear = new Date(now.getFullYear(), 0, 0);
-  const dayOfYear = Math.floor((now - startOfYear) / 86400000);
-  const content = dailyContents[dayOfYear % dailyContents.length];
+  var now = new Date();
+  var startOfYear = new Date(now.getFullYear(), 0, 0);
+  var dayOfYear = Math.floor((now - startOfYear) / 86400000);
+  var content = dailyContents[dayOfYear % dailyContents.length];
 
   verseText.textContent = content.verse;
   verseSource.textContent = content.verseSource;
