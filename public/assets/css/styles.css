@@ -7,6 +7,8 @@
   --line: #dfe8e3;
   --green: #087b43;
   --green-dark: #04562f;
+  --green-text: #04562f;
+  --green-text-soft: #087b43;
   --mint: #e7f7ee;
   --gold: #bc8728;
   --gold-soft: #fff2d8;
@@ -25,6 +27,8 @@ body[data-theme="dark"] {
   --muted: #a9bbb2;
   --line: #234038;
   --mint: #163a2b;
+  --green-text: #8be0b5;
+  --green-text-soft: #62d79a;
   --shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
 }
 
@@ -177,7 +181,7 @@ input {
 .brand small {
   display: block;
   margin-top: 3px;
-  color: var(--green);
+  color: var(--green-text-soft);
   font-size: 0.68rem;
   font-weight: 600;
   line-height: 1.1;
@@ -203,7 +207,7 @@ input {
 .site-nav a:hover,
 .site-nav a:focus-visible {
   background: var(--surface-soft);
-  color: var(--green-dark);
+  color: var(--green-text);
   outline: none;
 }
 
@@ -509,7 +513,7 @@ body[data-theme="dark"] .shortcut-card img {
 .menu-drawer-nav a[aria-current="page"] {
   border-color: rgba(8, 123, 67, 0.28);
   background: linear-gradient(180deg, color-mix(in srgb, var(--mint) 82%, var(--surface)), var(--mint));
-  color: var(--green-dark);
+  color: var(--green-text);
   box-shadow: 0 10px 22px rgba(8, 123, 67, 0.12);
 }
 
@@ -517,7 +521,7 @@ body[data-theme="dark"] .shortcut-card img {
 .menu-drawer-nav a:focus-visible {
   border-color: rgba(8, 123, 67, 0.28);
   background: var(--surface-soft);
-  color: var(--green-dark);
+  color: var(--green-text);
   outline: none;
 }
 
@@ -631,7 +635,7 @@ body[data-theme="dark"] .shortcut-card img {
 .font-size-control button.is-active {
   border-color: rgba(8, 123, 67, 0.22);
   background: var(--mint);
-  color: var(--green-dark);
+  color: var(--green-text);
   box-shadow: none;
 }
 
@@ -674,7 +678,7 @@ body[data-theme="dark"] .shortcut-card img {
 
 .notification-status.is-on {
   background: var(--mint);
-  color: var(--green-dark);
+  color: var(--green-text);
 }
 
 .notification-status.is-blocked {
@@ -879,7 +883,7 @@ body[data-theme="dark"] .hero-bg {
 
 .eyebrow {
   margin: 0 0 10px;
-  color: var(--green);
+  color: var(--green-text-soft);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0;
@@ -962,7 +966,7 @@ h2 {
   align-items: center;
   gap: 8px;
   margin-top: 16px;
-  color: #17241e;
+  color: var(--ink);
   font-size: 0.76rem;
 }
 
@@ -976,6 +980,12 @@ h2 {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.82);
   box-shadow: 0 8px 18px rgba(16, 32, 25, 0.06);
+}
+
+body[data-theme="dark"] .popular-searches a {
+  border-color: rgba(139, 224, 181, 0.22);
+  background: rgba(14, 31, 24, 0.86);
+  color: var(--ink);
 }
 
 .prep-card {
@@ -992,7 +1002,7 @@ h2 {
 
 .prep-label {
   display: block;
-  color: var(--green-dark);
+  color: var(--green-text);
   font-size: 1.28rem;
   font-weight: 600;
   line-height: 1.12;
@@ -1009,7 +1019,7 @@ h2 {
   justify-content: space-between;
   padding: 8px 0;
   border-top: 1px solid var(--line);
-  color: var(--green-dark);
+  color: var(--green-text);
   font-weight: 600;
   font-size: 0.82rem;
 }
@@ -1052,7 +1062,7 @@ h2 {
   place-items: center;
   border-radius: 50%;
   background: var(--mint);
-  color: var(--green);
+  color: var(--green-text-soft);
   font-size: 0.74rem;
   font-weight: 600;
 }
@@ -1125,7 +1135,7 @@ h2 {
 }
 
 .card-head a {
-  color: var(--green);
+  color: var(--green-text-soft);
   font-size: 0.78rem;
   font-weight: 600;
   white-space: nowrap;
@@ -1165,7 +1175,7 @@ h2 {
   place-items: center;
   border-radius: 999px;
   background: var(--mint);
-  color: var(--green-dark);
+  color: var(--green-text);
   font-size: 0.68rem;
   font-weight: 600;
 }
@@ -1485,7 +1495,7 @@ body[data-theme="dark"] .start-panel {
 }
 
 .daily-card small {
-  color: var(--green-dark);
+  color: var(--green-text);
   font-weight: 600;
 }
 
