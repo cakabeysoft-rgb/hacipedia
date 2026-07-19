@@ -1,33 +1,33 @@
 # Hacipedia
 
-Hacipedia, hac ve umre odakli hizli calisan bir bilgi platformu olarak tasarlaniyor. Rehberler, soru-cevap, pratik araclar, ihtiyac listeleri, acil numaralar, yol bilgileri ve sozluk modulleri tek bir sade bilgi mimarisinde toplanacak.
+Hacipedia, hac ve umre odaklı hızlı çalışan bir bilgi platformu olarak tasarlanıyor. Rehberler, soru-cevap, pratik araçlar, ihtiyaç listeleri, acil numaralar, yol bilgileri ve sözlük modülleri tek bir sade bilgi mimarisinde toplanacak.
 
 ## Hedef
 
-- Hac ve umreye hazirlanan kisiler icin guvenilir, kolay okunan bilgi kaynagi olusturmak
-- WordPress/Elementor agirligina girmeden hizli acilan bir PHP tabanli sistem kurmak
-- Once sayfa sayfa HTML prototip cikarmak, sonra ozel PHP + MySQL yapisina gecmek
-- Kullanicilarin kayitsiz soru sorabildigi, admin onayli bir soru-cevap sistemi kurmak
+- Hac ve umreye hazırlanan kişiler için güvenilir, kolay okunan bilgi kaynağı oluşturmak
+- WordPress/Elementor ağırlığına girmeden hızlı açılan bir PHP tabanlı sistem kurmak
+- Önce sayfa sayfa HTML prototip çıkarmak, sonra özel PHP + MySQL yapısına geçmek
+- Kullanıcıların kayıtsız soru sorabildiği, admin onaylı bir soru-cevap sistemi kurmak
 
-## Ilk Gelistirme Sirasi
+## İlk Geliştirme Sırası
 
 1. Ana sayfa HTML
-2. Ortak CSS tasarim sistemi
+2. Ortak CSS tasarım sistemi
 3. Umre rehberi HTML
 4. Hac rehberi HTML
 5. Soru-cevap liste HTML
 6. Soru sor HTML
 7. Makale detay HTML
-8. Araclar HTML
-9. Ihtiyac listesi HTML
-10. Arapca sozluk HTML
+8. Araçlar HTML
+9. İhtiyaç listesi HTML
+10. Arapça sözlük HTML
 11. PHP dosya mimarisi
-12. Veritabani semasi
+12. Veritabanı şeması
 13. Soru-cevap backend
 14. Admin panel
 15. Cache ve SEO
 
-## Klasor Yapisi
+## Klasör Yapısı
 
 ```text
 public/
@@ -41,4 +41,4 @@ outputs/
 
 ## Not
 
-Gizli bilgiler repoya eklenmeyecek. Gercek veritabani sifreleri, API anahtarlari ve sunucu bilgileri `.env` icinde kalacak; repoda sadece `.env.example` bulunacak.
+Gizli bilgiler repoya eklenmeyecek. Gerçek veritabanı şifreleri, API anahtarları ve sunucu bilgileri `.env` içinde kalacak; repoda sadece `.env.example` bulunacak.
