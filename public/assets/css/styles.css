@@ -1545,25 +1545,58 @@ body[data-theme="dark"] .start-panel {
     display: block;
     justify-self: end;
     grid-column: 3;
+    position: relative;
+    z-index: 50;
   }
 
   .site-nav {
-    position: absolute;
-    left: 20px;
-    right: 20px;
-    top: 86px;
-    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 40;
+    width: min(86vw, 360px);
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding: 10px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
+    justify-content: flex-start;
+    gap: 4px;
+    padding: 86px 18px 24px;
+    border-right: 1px solid var(--line);
     background: var(--surface);
-    box-shadow: var(--shadow);
+    box-shadow: 24px 0 60px rgba(16, 32, 25, 0.2);
+    transform: translateX(-105%);
+    transition: transform 180ms ease;
   }
 
   .site-nav.is-open {
-    display: flex;
+    transform: translateX(0);
+  }
+
+  .site-nav::before {
+    content: "Menü";
+    position: absolute;
+    left: 18px;
+    top: 24px;
+    color: var(--ink);
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+
+  .site-nav a {
+    display: block;
+    padding: 14px 12px;
+    border: 1px solid transparent;
+    background: transparent;
+    font-size: 0.96rem;
+  }
+
+  .site-nav a:hover,
+  .site-nav a:focus-visible {
+    border-color: rgba(8, 123, 67, 0.14);
+    background: var(--surface-soft);
   }
 
   .header-actions {
@@ -1735,6 +1768,11 @@ body[data-theme="dark"] .start-panel {
     flex: 0 0 auto;
   }
 
+  .site-nav {
+    width: 100vw;
+    padding: 82px 18px 24px;
+  }
+
   .menu-toggle span:not(.sr-only) {
     width: 15px;
     margin: 2px auto;
@@ -1759,12 +1797,6 @@ body[data-theme="dark"] .start-panel {
 
   .header-actions .solid-button {
     display: none;
-  }
-
-  .site-nav {
-    top: 76px;
-    left: 14px;
-    right: 14px;
   }
 
   .settings-modal {

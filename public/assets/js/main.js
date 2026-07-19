@@ -5,6 +5,7 @@ if (menuButton && siteNav) {
   menuButton.addEventListener("click", function () {
     var isOpen = siteNav.classList.toggle("is-open");
     menuButton.setAttribute("aria-expanded", String(isOpen));
+    syncModalLock();
   });
 }
 
@@ -37,7 +38,8 @@ var headerMusicTrigger = document.querySelector("#header-music-trigger");
 function syncModalLock() {
   var hasOpenSearch = searchModal && searchModal.classList.contains("is-open");
   var hasOpenSettings = settingsModal && settingsModal.classList.contains("is-open");
-  document.body.classList.toggle("modal-open", Boolean(hasOpenSearch || hasOpenSettings));
+  var hasOpenMenu = siteNav && siteNav.classList.contains("is-open");
+  document.body.classList.toggle("modal-open", Boolean(hasOpenSearch || hasOpenSettings || hasOpenMenu));
 }
 
 var searchableItems = [
@@ -145,6 +147,11 @@ document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     closeSearch();
     closeSettings();
+    if (siteNav && menuButton) {
+      siteNav.classList.remove("is-open");
+      menuButton.setAttribute("aria-expanded", "false");
+      syncModalLock();
+    }
   }
 });
 
