@@ -116,7 +116,7 @@ var talbiyahUtterance = null;
 function resetTalbiyahButton() {
   if (!talbiyahButton) return;
   talbiyahButton.setAttribute("aria-pressed", "false");
-  talbiyahButton.innerHTML = "<span>▶</span> Lebbeyk dinle";
+  talbiyahButton.innerHTML = '<span><img src="assets/icons/player-play.svg" alt="" aria-hidden="true"></span> Lebbeyk dinle';
   talbiyahUtterance = null;
 }
 
@@ -142,7 +142,7 @@ if (talbiyahButton) {
     talbiyahUtterance.pitch = 0.92;
 
     talbiyahButton.setAttribute("aria-pressed", "true");
-    talbiyahButton.innerHTML = "<span>■</span> Lebbeyk çalıyor";
+    talbiyahButton.innerHTML = '<span><img src="assets/icons/player-stop.svg" alt="" aria-hidden="true"></span> Lebbeyk çalıyor';
 
     talbiyahUtterance.onend = resetTalbiyahButton;
     talbiyahUtterance.onerror = resetTalbiyahButton;

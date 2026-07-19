@@ -205,9 +205,11 @@ input {
   box-shadow: 0 8px 22px rgba(16, 32, 25, 0.06);
 }
 
-.header-search-trigger span {
+.header-search-trigger img {
+  width: 17px;
+  height: 17px;
   color: var(--green-dark);
-  font-size: 1rem;
+  filter: brightness(0) saturate(100%) invert(25%) sepia(59%) saturate(840%) hue-rotate(111deg) brightness(88%) contrast(97%);
 }
 
 .header-search-trigger small {
@@ -529,7 +531,12 @@ h2 {
   border-radius: 50%;
   background: var(--green);
   color: #fff;
-  font-size: 0.72rem;
+}
+
+.talbiyah-player img {
+  width: 15px;
+  height: 15px;
+  filter: brightness(0) invert(1);
 }
 
 .talbiyah-player:hover {
@@ -619,6 +626,12 @@ h2 {
   color: var(--green);
   font-size: 0.74rem;
   font-weight: 600;
+}
+
+.shortcut-card img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) saturate(100%) invert(34%) sepia(49%) saturate(893%) hue-rotate(108deg) brightness(88%) contrast(94%);
 }
 
 .shortcut-card strong {
@@ -940,8 +953,12 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 50%;
   color: #fff;
-  font-size: 0.95rem;
-  font-weight: 600;
+}
+
+.social-links img {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
 }
 
 .site-footer h2 {
