@@ -67,7 +67,7 @@ function renderSearchResults(query) {
       return;
     }
 
-    html += '<a class="search-result" href="' + item.url + '">';
+    html += '<a class="search-result" href="' + item.url + '" target="_blank" rel="noopener">';
     html += "<strong>" + item.title + "</strong>";
     html += "<span>" + item.category + "</span>";
     html += "</a>";
