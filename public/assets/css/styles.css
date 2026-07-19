@@ -1782,6 +1782,18 @@ body[data-theme="dark"] .guide-hero-inner {
   color: #fff;
 }
 
+.guide-toc .guide-faq-button {
+  margin-top: 8px;
+  border-color: rgba(8, 123, 67, 0.2);
+  background: color-mix(in srgb, var(--mint) 60%, var(--surface));
+  color: var(--green-text);
+}
+
+.guide-toc .guide-faq-button span {
+  background: var(--green);
+  color: #fff;
+}
+
 .guide-content {
   display: grid;
   gap: 14px;
@@ -2101,19 +2113,23 @@ body[data-theme="dark"] .guide-hero-inner {
   margin-top: 16px;
   padding: 15px;
   border: 1px solid rgba(8, 123, 67, 0.18);
+  border-left: 4px solid var(--green);
   border-radius: var(--radius);
-  background: color-mix(in srgb, var(--mint) 38%, var(--surface));
+  background:
+    linear-gradient(90deg, rgba(8, 123, 67, 0.08), transparent 42%),
+    color-mix(in srgb, var(--mint) 42%, var(--surface));
 }
 
 .guide-callout > span,
 .guide-link-card > span {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: var(--surface);
-  box-shadow: inset 0 0 0 1px var(--line);
+  background: var(--green);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(8, 123, 67, 0.18);
   font-size: 1.15rem;
 }
 
@@ -2131,8 +2147,16 @@ body[data-theme="dark"] .guide-hero-inner {
 }
 
 .guide-callout-soft {
-  border-color: rgba(188, 135, 40, 0.22);
-  background: color-mix(in srgb, var(--gold-soft) 28%, var(--surface));
+  border-color: rgba(188, 135, 40, 0.28);
+  border-left-color: #bc8728;
+  background:
+    linear-gradient(90deg, rgba(188, 135, 40, 0.12), transparent 42%),
+    color-mix(in srgb, var(--gold-soft) 36%, var(--surface));
+}
+
+.guide-callout-soft > span {
+  background: #bc8728;
+  box-shadow: 0 8px 18px rgba(188, 135, 40, 0.2);
 }
 
 .guide-link-card a {
@@ -2251,13 +2275,52 @@ body[data-theme="dark"] .guide-hero-inner {
 }
 
 .guide-warning {
-  border: 1px solid rgba(188, 135, 40, 0.28);
-  background: color-mix(in srgb, var(--gold-soft) 34%, var(--surface));
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 14px;
+  align-items: start;
+  padding: 16px;
+  border: 1px solid rgba(188, 84, 40, 0.32);
+  border-left: 4px solid #d97706;
+  background:
+    linear-gradient(90deg, rgba(217, 119, 6, 0.14), transparent 44%),
+    color-mix(in srgb, #fff3d6 48%, var(--surface));
+}
+
+.guide-warning::before {
+  content: "!";
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #d97706;
+  color: #fff;
+  font-weight: 800;
+  box-shadow: 0 8px 18px rgba(217, 119, 6, 0.22);
+}
+
+.guide-warning strong,
+.guide-warning p {
+  grid-column: 2;
 }
 
 .guide-note strong,
 .guide-warning strong {
   color: var(--ink);
+}
+
+.guide-warning strong {
+  font-size: 0.94rem;
+}
+
+body[data-theme="dark"] .guide-warning {
+  border-color: rgba(245, 158, 11, 0.34);
+  border-left-color: #f59e0b;
+  background:
+    linear-gradient(90deg, rgba(245, 158, 11, 0.18), transparent 44%),
+    color-mix(in srgb, #3a2810 46%, var(--surface));
 }
 
 .guide-list,
