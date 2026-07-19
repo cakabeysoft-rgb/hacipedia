@@ -1438,8 +1438,12 @@ h2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .newsletter {
+  .footer-about {
     grid-column: span 2;
+  }
+
+  .newsletter {
+    grid-column: auto;
   }
 }
 
@@ -1474,13 +1478,12 @@ h2 {
   }
 
   .bottom-grid,
-  .community-band,
-  .footer-grid {
+  .community-band {
     grid-template-columns: 1fr;
   }
 
-  .newsletter {
-    grid-column: auto;
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .footer-bottom {
