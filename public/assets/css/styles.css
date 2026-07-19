@@ -14,7 +14,7 @@
   --rose: #a64f67;
   --shadow: 0 14px 34px rgba(20, 43, 32, 0.08);
   --radius: 8px;
-  --container: 1240px;
+  --container: 1320px;
 }
 
 * {
@@ -456,7 +456,7 @@ h2 {
   border-radius: 50%;
   background: var(--mint);
   color: var(--green);
-  font-size: 1.15rem;
+  font-size: 0.74rem;
   font-weight: 600;
 }
 
@@ -693,7 +693,7 @@ h2 {
   font-size: 0.86rem;
 }
 
-.dua-card {
+.daily-card {
   min-height: 210px;
   padding: 24px 28px;
   background:
@@ -701,14 +701,24 @@ h2 {
     linear-gradient(135deg, #f8fffb, #e9f7f0);
 }
 
-.dua-card blockquote {
-  margin: 14px 0 10px;
-  color: #14221b;
-  font-size: 0.9rem;
-  line-height: 1.8;
+.daily-card {
+  display: grid;
+  gap: 18px;
 }
 
-.dua-card small {
+.daily-item + .daily-item {
+  padding-top: 18px;
+  border-top: 1px solid rgba(8, 123, 67, 0.14);
+}
+
+.daily-card blockquote {
+  margin: 10px 0 8px;
+  color: #14221b;
+  font-size: 0.84rem;
+  line-height: 1.72;
+}
+
+.daily-card small {
   color: var(--green-dark);
   font-weight: 600;
 }
@@ -971,7 +981,7 @@ h2 {
   }
 
   .community-band,
-  .dua-card {
+  .daily-card {
     padding: 22px;
   }
 
