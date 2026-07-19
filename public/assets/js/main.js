@@ -148,8 +148,7 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-var youtubeAudioPlayer = document.querySelector("#youtube-audio-player");
-var talbiyahVideoId = "s_GVotx6-2M";
+var talbiyahAudio = document.querySelector("#talbiyah-audio");
 
 function setMusicState(isPlaying) {
   if (!headerMusicTrigger) return;
@@ -158,21 +157,38 @@ function setMusicState(isPlaying) {
 }
 
 function stopTalbiyahAudio() {
-  if (!youtubeAudioPlayer) return;
-  youtubeAudioPlayer.removeAttribute("src");
+  if (!talbiyahAudio) return;
+  talbiyahAudio.pause();
+  talbiyahAudio.currentTime = 0;
   setMusicState(false);
 }
 
 function playTalbiyahAudio() {
-  if (!youtubeAudioPlayer) return;
-  youtubeAudioPlayer.setAttribute(
-    "src",
-    "https://www.youtube.com/embed/" + talbiyahVideoId + "?autoplay=1&playsinline=1&rel=0"
-  );
+  if (!talbiyahAudio) return;
+
+  var playRequest = talbiyahAudio.play();
   setMusicState(true);
+
+  if (playRequest && typeof playRequest.catch === "function") {
+    playRequest.catch(function () {
+      setMusicState(false);
+    });
+  }
 }
 
-if (headerMusicTrigger && youtubeAudioPlayer) {
+if (talbiyahAudio) {
+  talbiyahAudio.addEventListener("ended", function () {
+    setMusicState(false);
+  });
+
+  talbiyahAudio.addEventListener("pause", function () {
+    if (talbiyahAudio.currentTime === 0 || talbiyahAudio.ended) {
+      setMusicState(false);
+    }
+  });
+}
+
+if (headerMusicTrigger) {
   headerMusicTrigger.addEventListener("click", function () {
     if (headerMusicTrigger.getAttribute("aria-pressed") === "true") {
       stopTalbiyahAudio();
