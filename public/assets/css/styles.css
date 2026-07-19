@@ -1765,11 +1765,21 @@ body[data-theme="dark"] .guide-hero-inner {
 }
 
 .guide-toc a:hover,
-.guide-toc a:focus-visible {
+.guide-toc a:focus-visible,
+.guide-toc a[aria-current="page"] {
   border-color: rgba(8, 123, 67, 0.24);
   background: var(--mint);
   color: var(--green-text);
   outline: none;
+}
+
+.guide-toc a[aria-current="page"] {
+  box-shadow: inset 0 0 0 1px rgba(8, 123, 67, 0.08);
+}
+
+.guide-toc a[aria-current="page"] span {
+  background: var(--green);
+  color: #fff;
 }
 
 .guide-content {
