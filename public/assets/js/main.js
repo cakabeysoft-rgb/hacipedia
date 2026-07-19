@@ -24,6 +24,20 @@ var searchTrigger = document.querySelector(".header-search-trigger");
 var modalSearchInput = document.querySelector("#modal-search-input");
 var searchSuggestions = document.querySelector("#search-suggestions");
 var closeSearchButtons = document.querySelectorAll("[data-close-search]");
+var settingsModal = document.querySelector("#settings-modal");
+var settingsTrigger = document.querySelector("#settings-trigger");
+var closeSettingsButtons = document.querySelectorAll("[data-close-settings]");
+var themeToggle = document.querySelector("#theme-toggle");
+var themeIcon = document.querySelector("#theme-icon");
+var notificationToggle = document.querySelector("#notification-toggle");
+var fontSizeButtons = document.querySelectorAll("[data-font-size]");
+var headerMusicTrigger = document.querySelector("#header-music-trigger");
+
+function syncModalLock() {
+  var hasOpenSearch = searchModal && searchModal.classList.contains("is-open");
+  var hasOpenSettings = settingsModal && settingsModal.classList.contains("is-open");
+  document.body.classList.toggle("modal-open", Boolean(hasOpenSearch || hasOpenSettings));
+}
 
 var searchableItems = [
   { title: "İhram nasıl giyilir?", category: "Hac Rehberi", url: "ihram-nasil-giyilir.html" },
@@ -70,7 +84,7 @@ function openSearch() {
   if (!searchModal || !modalSearchInput) return;
   searchModal.classList.add("is-open");
   searchModal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("modal-open");
+  syncModalLock();
   renderSearchResults("");
   window.setTimeout(function () {
     modalSearchInput.focus();
@@ -81,7 +95,7 @@ function closeSearch() {
   if (!searchModal) return;
   searchModal.classList.remove("is-open");
   searchModal.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("modal-open");
+  syncModalLock();
 }
 
 if (searchTrigger && searchModal) {
@@ -104,9 +118,32 @@ Array.prototype.forEach.call(closeSearchButtons, function (button) {
   button.addEventListener("click", closeSearch);
 });
 
+function openSettings() {
+  if (!settingsModal) return;
+  settingsModal.classList.add("is-open");
+  settingsModal.setAttribute("aria-hidden", "false");
+  syncModalLock();
+}
+
+function closeSettings() {
+  if (!settingsModal) return;
+  settingsModal.classList.remove("is-open");
+  settingsModal.setAttribute("aria-hidden", "true");
+  syncModalLock();
+}
+
+if (settingsTrigger && settingsModal) {
+  settingsTrigger.addEventListener("click", openSettings);
+}
+
+Array.prototype.forEach.call(closeSettingsButtons, function (button) {
+  button.addEventListener("click", closeSettings);
+});
+
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     closeSearch();
+    closeSettings();
   }
 });
 
@@ -149,6 +186,61 @@ if (talbiyahButton) {
 
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(talbiyahUtterance);
+  });
+}
+
+if (headerMusicTrigger && talbiyahButton) {
+  headerMusicTrigger.addEventListener("click", function () {
+    talbiyahButton.click();
+  });
+}
+
+function applyFontSize(size) {
+  var nextSize = size || "medium";
+  document.body.setAttribute("data-font-size", nextSize);
+  window.localStorage.setItem("hacipedia-font-size", nextSize);
+
+  Array.prototype.forEach.call(fontSizeButtons, function (button) {
+    button.classList.toggle("is-active", button.getAttribute("data-font-size") === nextSize);
+  });
+}
+
+function applyTheme(theme) {
+  var nextTheme = theme === "dark" ? "dark" : "light";
+  document.body.setAttribute("data-theme", nextTheme);
+  window.localStorage.setItem("hacipedia-theme", nextTheme);
+
+  if (themeToggle) {
+    var isDark = nextTheme === "dark";
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+    themeToggle.setAttribute("aria-label", isDark ? "Gece modunu kapat" : "Gece modunu aç");
+  }
+
+  if (themeIcon) {
+    themeIcon.setAttribute("src", nextTheme === "dark" ? "assets/icons/sun.svg" : "assets/icons/moon.svg");
+  }
+}
+
+applyFontSize(window.localStorage.getItem("hacipedia-font-size") || "medium");
+applyTheme(window.localStorage.getItem("hacipedia-theme") || "light");
+
+Array.prototype.forEach.call(fontSizeButtons, function (button) {
+  button.addEventListener("click", function () {
+    applyFontSize(button.getAttribute("data-font-size"));
+  });
+});
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", function () {
+    var isDark = document.body.getAttribute("data-theme") === "dark";
+    applyTheme(isDark ? "light" : "dark");
+  });
+}
+
+if (notificationToggle) {
+  notificationToggle.addEventListener("click", function () {
+    var isOn = notificationToggle.getAttribute("aria-pressed") === "true";
+    notificationToggle.setAttribute("aria-pressed", String(!isOn));
   });
 }
 

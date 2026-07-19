@@ -44,9 +44,14 @@
         </nav>
 
         <div class="header-actions">
-          <button class="header-search-trigger" type="button" aria-haspopup="dialog" aria-controls="search-modal">
+          <button class="header-icon-button header-search-trigger" type="button" aria-haspopup="dialog" aria-controls="search-modal" aria-label="Arama yap">
             <img src="assets/icons/search.svg" alt="" aria-hidden="true">
-            <small>Arama yap</small>
+          </button>
+          <button class="header-icon-button" type="button" id="header-music-trigger" aria-label="Lebbeyk dinle">
+            <img src="assets/icons/music.svg" alt="" aria-hidden="true">
+          </button>
+          <button class="header-icon-button" type="button" id="settings-trigger" aria-haspopup="dialog" aria-controls="settings-modal" aria-label="Ayarlar">
+            <img src="assets/icons/settings.svg" alt="" aria-hidden="true">
           </button>
           <a class="solid-button" href="soru-sor.html">Soru Sor</a>
         </div>
@@ -66,6 +71,69 @@
         <label class="sr-only" for="modal-search-input">Arama kelimesi</label>
         <input id="modal-search-input" type="search" placeholder="İhram, tavaf, sa'y, mikat..." autocomplete="off">
         <div class="search-suggestions" id="search-suggestions" aria-live="polite"></div>
+      </section>
+    </div>
+
+    <div class="settings-modal" id="settings-modal" aria-hidden="true">
+      <div class="settings-backdrop" data-close-settings></div>
+      <section class="settings-dialog" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
+        <div class="settings-head">
+          <h2 id="settings-modal-title">Ayarlar</h2>
+          <button class="settings-close" type="button" data-close-settings aria-label="Ayarları kapat">×</button>
+        </div>
+
+        <div class="setting-font-card">
+          <div class="setting-title">
+            <span class="setting-icon amber">T</span>
+            <strong>Yazı Boyutu</strong>
+          </div>
+          <div class="font-size-control" role="group" aria-label="Yazı boyutu">
+            <button type="button" data-font-size="small">Küçük</button>
+            <button type="button" data-font-size="medium" class="is-active">Orta</button>
+            <button type="button" data-font-size="large">Büyük</button>
+          </div>
+        </div>
+
+        <div class="settings-list">
+          <div class="setting-row">
+            <span class="setting-icon"><img id="theme-icon" src="assets/icons/moon.svg" alt="" aria-hidden="true"></span>
+            <div>
+              <strong>Gece / Gündüz Modu</strong>
+              <small>Karanlık ve aydınlık tema seçimi</small>
+            </div>
+            <button class="switch" type="button" id="theme-toggle" aria-pressed="false" aria-label="Gece modunu aç"></button>
+          </div>
+
+          <div class="setting-row">
+            <span class="setting-icon"><img src="assets/icons/bell.svg" alt="" aria-hidden="true"></span>
+            <div>
+              <strong>Bildirimler</strong>
+              <small>Mikat alarmı ve önemli hatırlatmalar için</small>
+            </div>
+            <button class="switch" type="button" id="notification-toggle" aria-pressed="false" aria-label="Bildirimleri aç"></button>
+          </div>
+        </div>
+
+        <div class="privacy-note">
+          <span class="setting-icon green"><img src="assets/icons/shield-check.svg" alt="" aria-hidden="true"></span>
+          <div>
+            <strong>Güvenlik & Gizlilik</strong>
+            <p>Bu ayarlar yalnızca tarayıcınızda saklanır. Yazı boyutu, tema ve bildirim tercihleri sunucuya gönderilmez.</p>
+          </div>
+        </div>
+
+        <div class="install-card">
+          <div class="install-row">
+            <span><img src="assets/icons/device-mobile.svg" alt="" aria-hidden="true"></span>
+            <div>
+              <strong>Uygulamayı Yükle</strong>
+              <p>İnternetin zayıf olduğu yerlerde de hızlı kullanabilmek için ana ekrana ekleyebilirsiniz.</p>
+            </div>
+          </div>
+          <button type="button">Yükle</button>
+        </div>
+
+        <p class="app-version">v 0.1</p>
       </section>
     </div>
 
@@ -325,10 +393,9 @@
           </a>
           <p>Hac ve umre yolculuğunuzu kolaylaştırmak için buradayız. Doğru bilgi, güçlü topluluk.</p>
           <div class="social-links" aria-label="Sosyal medya">
-            <a href="#" aria-label="Facebook"><img src="assets/icons/brand-facebook.svg" alt="" aria-hidden="true"></a>
-            <a href="#" aria-label="Instagram"><img src="assets/icons/brand-instagram.svg" alt="" aria-hidden="true"></a>
-            <a href="#" aria-label="YouTube"><img src="assets/icons/brand-youtube.svg" alt="" aria-hidden="true"></a>
-            <a href="#" aria-label="Telegram"><img src="assets/icons/brand-telegram.svg" alt="" aria-hidden="true"></a>
+            <a class="facebook" href="#" aria-label="Facebook"><img src="assets/icons/brand-facebook.svg" alt="" aria-hidden="true"></a>
+            <a class="instagram" href="#" aria-label="Instagram"><img src="assets/icons/brand-instagram.svg" alt="" aria-hidden="true"></a>
+            <a class="youtube" href="#" aria-label="YouTube"><img src="assets/icons/brand-youtube.svg" alt="" aria-hidden="true"></a>
           </div>
         </div>
         <div>
@@ -371,6 +438,6 @@
       </div>
     </footer>
 
-    <script src="assets/js/main.js?v=20260719-2"></script>
+    <script src="assets/js/main.js?v=20260719-3"></script>
   </body>
 </html>
