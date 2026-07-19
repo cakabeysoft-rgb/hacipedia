@@ -395,12 +395,14 @@ body[data-theme="dark"] .shortcut-card img {
   position: relative;
   width: min(420px, 100%);
   min-height: calc(100vh - 28px);
+  max-height: calc(100vh - 28px);
   margin-left: auto;
   padding: 22px;
   border: 1px solid var(--line);
   border-radius: 16px;
   background: var(--surface);
   box-shadow: -22px 0 70px rgba(3, 14, 11, 0.26);
+  overflow-y: auto;
   animation: settingsPanelIn 180ms ease-out;
 }
 
@@ -408,12 +410,14 @@ body[data-theme="dark"] .shortcut-card img {
   position: relative;
   width: min(420px, 100%);
   min-height: calc(100vh - 28px);
+  max-height: calc(100vh - 28px);
   margin-right: auto;
   padding: 22px;
   border: 1px solid var(--line);
   border-radius: 16px;
   background: var(--surface);
   box-shadow: 22px 0 70px rgba(3, 14, 11, 0.26);
+  overflow-y: auto;
   animation: menuPanelIn 180ms ease-out;
 }
 
@@ -1841,22 +1845,27 @@ body[data-theme="dark"] .start-panel {
     display: none;
   }
 
-  .settings-modal {
+  .settings-modal,
+  .menu-modal {
     padding: 10px;
   }
 
-  .settings-dialog {
+  .settings-dialog,
+  .menu-dialog {
     width: 100%;
     min-height: calc(100vh - 20px);
+    max-height: calc(100vh - 20px);
     padding: 16px;
     border-radius: 14px;
   }
 
-  .settings-head h2 {
+  .settings-head h2,
+  .menu-head h2 {
     font-size: 1.2rem;
   }
 
-  .settings-close {
+  .settings-close,
+  .menu-close {
     width: 40px;
     height: 40px;
   }
