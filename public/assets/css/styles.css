@@ -2190,7 +2190,7 @@ body[data-theme="dark"] .guide-hero-inner {
 
 .guide-pager {
   display: grid;
-  grid-template-columns: minmax(140px, max-content) minmax(140px, max-content);
+  grid-template-columns: repeat(2, minmax(0, 178px));
   justify-content: space-between;
   gap: 12px;
   margin-top: 24px;
@@ -2204,7 +2204,8 @@ body[data-theme="dark"] .guide-hero-inner {
   display: grid;
   align-content: center;
   gap: 3px;
-  min-width: 178px;
+  width: 100%;
+  min-width: 0;
   padding: 12px 16px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -2218,16 +2219,15 @@ body[data-theme="dark"] .guide-hero-inner {
   border-color: rgba(8, 123, 67, 0.26);
   background: var(--mint);
   color: var(--green-text);
-  text-align: right;
 }
 
-.guide-pager a strong {
+.guide-pager strong {
   display: block;
   color: inherit;
   font-size: 0.78rem;
 }
 
-.guide-pager a small {
+.guide-pager small {
   color: var(--muted);
   font-size: 0.74rem;
 }
@@ -2602,7 +2602,6 @@ body[data-theme="dark"] .guide-hero-inner {
   .guide-card-grid,
   .guide-info-grid,
   .guide-icon-list-compact,
-  .guide-pager,
   .guide-video-card,
   .guide-side {
     grid-template-columns: 1fr;
@@ -2883,6 +2882,16 @@ body[data-theme="dark"] .guide-hero-inner {
 
   .guide-layout {
     gap: 14px;
+  }
+
+  .guide-pager {
+    gap: 8px;
+  }
+
+  .guide-pager a,
+  .guide-pager span {
+    min-height: 54px;
+    padding: 10px 8px;
   }
 
   .guide-toc {
