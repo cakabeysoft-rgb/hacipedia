@@ -1931,25 +1931,78 @@ body[data-theme="dark"] .guide-hero-inner {
 .visual-ihram {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(3, 18, 14, 0.64)),
-    url("../img/hero-kaaba-optimized.jpg") 35% center / cover no-repeat;
+    url("../img/hac/ihram.jpg") center / cover no-repeat;
 }
 
-.visual-tawaf,
+.visual-tawaf {
+  background:
+    linear-gradient(180deg, transparent, rgba(3, 18, 14, 0.62)),
+    url("../img/hac/tawaf.jpg") center / cover no-repeat;
+}
+
+.visual-say {
+  background:
+    linear-gradient(180deg, transparent, rgba(3, 18, 14, 0.62)),
+    url("../img/hac/say.jpg") center / cover no-repeat;
+}
+
+.visual-arafat {
+  background:
+    linear-gradient(180deg, transparent, rgba(3, 18, 14, 0.62)),
+    url("../img/hac/arafat.jpg") center / cover no-repeat;
+}
+
 .visual-mina {
   background:
     linear-gradient(180deg, transparent, rgba(3, 18, 14, 0.62)),
-    url("../img/hero-kaaba-optimized.jpg") center / cover no-repeat;
+    url("../img/hac/mina.jpg") center / cover no-repeat;
+}
+
+.visual-muzdalifah {
+  background:
+    linear-gradient(180deg, transparent, rgba(3, 18, 14, 0.62)),
+    url("../img/hac/mina.jpg") center 34% / cover no-repeat;
+}
+
+.visual-kurban {
+  background:
+    linear-gradient(180deg, transparent, rgba(3, 18, 14, 0.62)),
+    url("../img/hac/kurban.jpg") center / cover no-repeat;
+}
+
+.visual-hac {
+  background:
+    linear-gradient(180deg, transparent, rgba(3, 18, 14, 0.62)),
+    url("../img/hac/kaaba-hajj.jpg") center / cover no-repeat;
 }
 
 .dua-box {
+  position: relative;
   margin-top: 16px;
-  padding: 16px;
+  padding: 18px 18px 18px 68px;
   border: 1px solid rgba(8, 123, 67, 0.18);
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--mint) 48%, var(--surface));
 }
 
+.dua-box::before {
+  content: "☪";
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
 .dua-box strong {
+  display: block;
   color: var(--green-text);
 }
 
@@ -1957,6 +2010,14 @@ body[data-theme="dark"] .guide-hero-inner {
   color: var(--ink);
   font-size: 1rem;
   line-height: 1.7;
+}
+
+.dua-box .arabic {
+  direction: rtl;
+  color: var(--ink);
+  font-family: "Geeza Pro", "Noto Naskh Arabic", "Amiri", serif;
+  font-size: 1.28rem;
+  line-height: 2;
 }
 
 .dua-box small {
