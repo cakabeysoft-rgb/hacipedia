@@ -2494,31 +2494,9 @@ body[data-theme="dark"] .guide-hero-inner {
   }
 
   .guide-toc {
-    position: relative;
     display: flex;
     max-height: none;
-    overflow-y: hidden;
     overflow-x: auto;
-    box-shadow: 0 10px 24px rgba(16, 24, 40, 0.1);
-    scrollbar-width: none;
-  }
-
-  .guide-toc::after {
-    content: "";
-    position: sticky;
-    right: -10px;
-    flex: 0 0 54px;
-    align-self: stretch;
-    pointer-events: none;
-    background:
-      radial-gradient(circle at 13px 50%, rgba(8, 123, 67, 0.5) 0 2px, transparent 3px),
-      radial-gradient(circle at 25px 50%, rgba(8, 123, 67, 0.34) 0 2px, transparent 3px),
-      radial-gradient(circle at 37px 50%, rgba(8, 123, 67, 0.2) 0 2px, transparent 3px),
-      linear-gradient(90deg, transparent, var(--surface) 72%);
-  }
-
-  .guide-toc::-webkit-scrollbar {
-    display: none;
   }
 
   .guide-toc strong {
@@ -2529,17 +2507,6 @@ body[data-theme="dark"] .guide-hero-inner {
   .guide-toc a {
     flex: 0 0 auto;
     white-space: nowrap;
-  }
-
-  .guide-toc a[aria-current="page"] {
-    order: -1;
-    position: sticky;
-    left: 82px;
-    z-index: 2;
-    border-color: rgba(8, 123, 67, 0.28);
-    background: var(--mint);
-    color: var(--green-text);
-    box-shadow: 10px 0 18px color-mix(in srgb, var(--surface) 86%, transparent);
   }
 
   .guide-side {
