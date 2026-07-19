@@ -57,6 +57,7 @@ function syncModalLock() {
 }
 
 var searchableItems = [
+  { title: "Hac rehberi", category: "Hac Rehberi", url: "hac-rehberi.html" },
   { title: "İhram nasıl giyilir?", category: "Hac Rehberi", url: "ihram-nasil-giyilir.html" },
   { title: "Tavaf nasıl yapılır?", category: "Umre Rehberi", url: "tavaf-nasil-yapilir.html" },
   { title: "Mikat noktaları nelerdir?", category: "Bilgi Merkezi", url: "mikat-noktalari.html" },
@@ -393,3 +394,60 @@ if (verseText && verseSource && hadithText && hadithSource) {
   hadithText.textContent = content.hadith;
   hadithSource.textContent = content.hadithSource;
 }
+
+var guideVideos = {
+  ihram: {
+    title: "İhram Hazırlığı",
+    label: "İhram",
+    description: "İhrama girmeden önce niyet, kıyafet, temizlik ve yasaklar konusunda bilmeniz gereken temel noktalar."
+  },
+  tavaf: {
+    title: "Tavaf Nasıl Yapılır?",
+    label: "Tavaf",
+    description: "Kabe etrafında yedi şavtın sakin, düzenli ve kalabalığa dikkat ederek nasıl tamamlandığını öğrenin."
+  },
+  say: {
+    title: "Sa'y Rehberi",
+    label: "Sa'y",
+    description: "Safa ile Merve arasındaki yedi yürüyüşün sırası, niyeti ve pratik dikkat noktaları."
+  },
+  arafat: {
+    title: "Arafat Vakfesi",
+    label: "Arafat",
+    description: "Arefe günü Arafat'ta bulunmanın önemi, dua zamanı ve kafile düzeninde dikkat edilecekler."
+  },
+  mina: {
+    title: "Mina ve Şeytan Taşlama",
+    label: "Mina",
+    description: "Müzdelife sonrası Mina süreci, şeytan taşlama günleri ve yoğunlukta güvenli hareket etme notları."
+  }
+};
+
+var guideVideoButtons = document.querySelectorAll("[data-guide-video]");
+var guideVideoTitle = document.querySelector("#video-title");
+var guideVideoDescription = document.querySelector("#video-description");
+var guideVideoLabel = document.querySelector("#video-label");
+
+Array.prototype.forEach.call(guideVideoButtons, function (button) {
+  button.addEventListener("click", function () {
+    var key = button.getAttribute("data-guide-video");
+    var video = guideVideos[key];
+    if (!video || !guideVideoTitle || !guideVideoDescription || !guideVideoLabel) return;
+
+    guideVideoTitle.textContent = video.title;
+    guideVideoDescription.textContent = video.description;
+    guideVideoLabel.textContent = video.label;
+
+    Array.prototype.forEach.call(guideVideoButtons, function (item) {
+      item.classList.toggle("is-active", item === button);
+    });
+  });
+});
+
+var printGuideButtons = document.querySelectorAll("[data-print-guide]");
+
+Array.prototype.forEach.call(printGuideButtons, function (button) {
+  button.addEventListener("click", function () {
+    window.print();
+  });
+});

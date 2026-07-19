@@ -1601,6 +1601,808 @@ body[data-theme="dark"] .start-panel {
   color: #ff3333;
 }
 
+.guide-page {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--mint) 36%, transparent) 0, transparent 320px),
+    var(--bg);
+}
+
+.guide-hero {
+  margin-top: 18px;
+  padding: 34px 0;
+}
+
+.guide-hero-inner {
+  display: block;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--surface) 96%, transparent) 0 62%, color-mix(in srgb, var(--surface) 74%, transparent)),
+    url("../img/hero-kaaba-optimized.jpg") right center / auto 100% no-repeat,
+    var(--surface);
+  box-shadow: var(--shadow);
+}
+
+body[data-theme="dark"] .guide-hero-inner {
+  background:
+    linear-gradient(90deg, rgba(14, 31, 24, 0.98) 0 62%, rgba(14, 31, 24, 0.82)),
+    url("../img/hero-kaaba-optimized.jpg") right center / auto 100% no-repeat,
+    var(--surface);
+}
+
+.guide-lead {
+  max-width: 720px;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.guide-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.guide-actions .solid-button,
+.guide-actions .ghost-button {
+  min-height: 42px;
+}
+
+.ghost-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.guide-search {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+}
+
+.guide-search label {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.guide-search div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+.guide-search input {
+  min-width: 0;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  outline: none;
+}
+
+.guide-search button,
+.side-card button {
+  min-height: 42px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--green);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.guide-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 280px;
+  gap: 18px;
+  align-items: start;
+  padding-bottom: 26px;
+}
+
+.guide-left,
+.guide-side {
+  position: sticky;
+  top: 96px;
+  display: grid;
+  gap: 10px;
+}
+
+.guide-left {
+  align-content: start;
+}
+
+.guide-toc {
+  max-height: calc(100vh - 118px);
+  padding: 14px;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.guide-toc strong {
+  margin-bottom: 4px;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.guide-toc a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.guide-toc a span {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface-soft);
+  color: var(--green-text);
+  font-size: 0.68rem;
+}
+
+.guide-toc a:hover,
+.guide-toc a:focus-visible {
+  border-color: rgba(8, 123, 67, 0.24);
+  background: var(--mint);
+  color: var(--green-text);
+  outline: none;
+}
+
+.guide-content {
+  display: grid;
+  gap: 14px;
+}
+
+.guide-card,
+.guide-video-card,
+.side-card,
+.guide-mini-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 10px 26px rgba(16, 32, 25, 0.055);
+}
+
+.guide-mini-card {
+  display: grid;
+  gap: 10px;
+  padding: 15px;
+}
+
+.guide-mini-card h2 {
+  font-size: 0.96rem;
+}
+
+.guide-mini-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.guide-mini-card a {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.guide-card {
+  position: relative;
+  scroll-margin-top: 104px;
+  padding: 22px;
+}
+
+.guide-card-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
+  gap: 22px;
+  align-items: start;
+}
+
+.guide-intro {
+  max-width: 760px;
+}
+
+.guide-step {
+  display: inline-flex;
+  min-width: 38px;
+  height: 26px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  border-radius: 999px;
+  background: var(--mint);
+  color: var(--green-text);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.guide-card p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.guide-article > .guide-section {
+  margin-top: 28px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+
+.guide-section h2 {
+  margin-bottom: 12px;
+  font-size: 1.12rem;
+}
+
+.guide-visual {
+  min-height: 190px;
+  display: grid;
+  align-items: end;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, transparent, rgba(3, 18, 14, 0.62)),
+    url("../img/hero-kaaba-optimized.jpg") center / cover no-repeat;
+}
+
+.guide-visual-strip {
+  min-height: 132px;
+  margin-top: 16px;
+}
+
+.guide-inline-visual {
+  min-height: 178px;
+  margin: 24px 0 0;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, transparent, rgba(3, 18, 14, 0.64)),
+    url("../img/hero-kaaba-optimized.jpg") center / cover no-repeat;
+}
+
+.guide-visual figcaption {
+  padding: 12px;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.guide-inline-visual figcaption {
+  max-width: 560px;
+  padding: 14px 16px;
+  color: #fff;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+.visual-nabawi,
+.visual-list {
+  background:
+    linear-gradient(180deg, transparent, rgba(3, 18, 14, 0.58)),
+    url("../img/masjid-nabawi-start.jpg") center / cover no-repeat;
+}
+
+.visual-ihram {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(3, 18, 14, 0.64)),
+    url("../img/hero-kaaba-optimized.jpg") 35% center / cover no-repeat;
+}
+
+.visual-tawaf,
+.visual-mina {
+  background:
+    linear-gradient(180deg, transparent, rgba(3, 18, 14, 0.62)),
+    url("../img/hero-kaaba-optimized.jpg") center / cover no-repeat;
+}
+
+.dua-box {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid rgba(8, 123, 67, 0.18);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--mint) 48%, var(--surface));
+}
+
+.dua-box strong {
+  color: var(--green-text);
+}
+
+.dua-box p {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.dua-box small {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.guide-deep {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.guide-deep h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.guide-deep p {
+  margin-top: 6px;
+}
+
+.guide-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.guide-info-grid div {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+}
+
+.guide-info-grid strong {
+  display: block;
+  color: var(--ink);
+  font-size: 0.86rem;
+}
+
+.guide-info-grid small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.guide-callout,
+.guide-link-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+  padding: 15px;
+  border: 1px solid rgba(8, 123, 67, 0.18);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--mint) 38%, var(--surface));
+}
+
+.guide-callout > span,
+.guide-link-card > span {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 1.15rem;
+}
+
+.guide-callout strong,
+.guide-link-card strong {
+  display: block;
+  color: var(--green-text);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.guide-callout p,
+.guide-link-card p {
+  margin-top: 5px;
+}
+
+.guide-callout-soft {
+  border-color: rgba(188, 135, 40, 0.22);
+  background: color-mix(in srgb, var(--gold-soft) 28%, var(--surface));
+}
+
+.guide-link-card a {
+  grid-column: 2;
+  justify-self: start;
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2px;
+  padding: 0 12px;
+  border: 1px solid rgba(8, 123, 67, 0.26);
+  border-radius: var(--radius);
+  color: var(--green-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.guide-icon-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.guide-icon-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.guide-icon-list span {
+  font-size: 1.05rem;
+}
+
+.guide-icon-list-compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.guide-note,
+.guide-warning {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+}
+
+.guide-note-strong {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 14px;
+  align-items: start;
+  border: 1px solid rgba(8, 123, 67, 0.16);
+  background: color-mix(in srgb, var(--mint) 42%, var(--surface));
+}
+
+.guide-note-strong::before {
+  content: "i";
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-weight: 800;
+}
+
+.guide-note-strong strong,
+.guide-note-strong p {
+  grid-column: 2;
+}
+
+.guide-warning {
+  border: 1px solid rgba(188, 135, 40, 0.28);
+  background: color-mix(in srgb, var(--gold-soft) 34%, var(--surface));
+}
+
+.guide-note strong,
+.guide-warning strong {
+  color: var(--ink);
+}
+
+.guide-list,
+.guide-checks {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.guide-checks {
+  padding-left: 0;
+  list-style: none;
+}
+
+.guide-checks li {
+  position: relative;
+  min-height: 24px;
+  padding-left: 32px;
+}
+
+.guide-checks li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(8, 123, 67, 0.42);
+  border-radius: 50%;
+  color: var(--green-text);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.guide-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.guide-columns div {
+  display: grid;
+  gap: 5px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+}
+
+.guide-columns small {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.guide-pager {
+  display: grid;
+  grid-template-columns: minmax(140px, max-content) minmax(140px, max-content);
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.guide-pager a,
+.guide-pager span {
+  min-height: 58px;
+  display: grid;
+  align-content: center;
+  gap: 3px;
+  min-width: 178px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+  color: var(--ink);
+  font-weight: 600;
+  text-align: center;
+}
+
+.guide-pager a {
+  border-color: rgba(8, 123, 67, 0.26);
+  background: var(--mint);
+  color: var(--green-text);
+  text-align: right;
+}
+
+.guide-pager a strong {
+  display: block;
+  color: inherit;
+  font-size: 0.78rem;
+}
+
+.guide-pager a small {
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.guide-pager .is-disabled {
+  color: var(--muted);
+  opacity: 0.65;
+}
+
+.side-card {
+  display: grid;
+  gap: 9px;
+  padding: 15px;
+}
+
+.side-card h2 {
+  margin-bottom: 3px;
+  font-size: 1rem;
+}
+
+.side-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.side-head a {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--green-text-soft);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.side-card a,
+.side-card button {
+  display: flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 9px 10px;
+  border-radius: var(--radius);
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.side-card a {
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+  color: var(--ink);
+}
+
+.muted-side p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.pdf-card {
+  min-height: 170px;
+  align-content: start;
+  background:
+    linear-gradient(135deg, rgba(8, 123, 67, 0.12), transparent 58%),
+    var(--surface-soft);
+}
+
+.pdf-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.video-side-card strong,
+.video-side-card small {
+  display: block;
+}
+
+.video-side-card small {
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.side-video-thumb {
+  min-height: 128px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(8, 123, 67, 0.18), transparent),
+    url("../img/hero-kaaba-optimized.jpg") center / cover no-repeat;
+}
+
+.side-video-thumb span {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(3, 18, 14, 0.72);
+  color: #fff;
+}
+
+.guide-video-card {
+  scroll-margin-top: 104px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  gap: 16px;
+  padding: 18px;
+}
+
+.video-stage {
+  min-height: 320px;
+  display: grid;
+  align-content: start;
+}
+
+.video-stage p:not(.eyebrow) {
+  max-width: 620px;
+  color: var(--muted);
+}
+
+.video-placeholder {
+  min-height: 190px;
+  display: grid;
+  place-items: center;
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(8, 123, 67, 0.2), transparent),
+    var(--surface-soft);
+}
+
+.video-placeholder span {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.video-placeholder strong {
+  color: var(--ink);
+}
+
+.video-tabs {
+  display: grid;
+  gap: 9px;
+  align-content: start;
+}
+
+.video-tabs button {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+  color: var(--ink);
+  text-align: left;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.video-tabs button.is-active {
+  border-color: rgba(8, 123, 67, 0.34);
+  background: var(--mint);
+  color: var(--green-text);
+}
+
 @media (max-width: 1120px) {
   .header-inner {
     grid-template-columns: auto 1fr auto;
@@ -1675,6 +2477,40 @@ body[data-theme="dark"] .start-panel {
     grid-column: span 2;
   }
 
+  .guide-hero-inner,
+  .guide-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-left,
+  .guide-side {
+    position: static;
+  }
+
+  .guide-left {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-toc {
+    display: flex;
+    max-height: none;
+    overflow-x: auto;
+  }
+
+  .guide-toc strong {
+    flex: 0 0 auto;
+    align-self: center;
+  }
+
+  .guide-toc a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .guide-side {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .newsletter {
     grid-column: auto;
   }
@@ -1745,6 +2581,44 @@ body[data-theme="dark"] .start-panel {
   .footer-bottom {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .guide-hero-inner {
+    padding: 24px;
+    background:
+      linear-gradient(90deg, color-mix(in srgb, var(--surface) 98%, transparent), color-mix(in srgb, var(--surface) 88%, transparent)),
+      url("../img/hero-kaaba-optimized.jpg") 70% center / cover no-repeat,
+      var(--surface);
+  }
+
+  body[data-theme="dark"] .guide-hero-inner {
+    background:
+      linear-gradient(90deg, rgba(14, 31, 24, 0.98), rgba(14, 31, 24, 0.82)),
+      url("../img/hero-kaaba-optimized.jpg") 70% center / cover no-repeat,
+      var(--surface);
+  }
+
+  .guide-columns,
+  .guide-card-grid,
+  .guide-info-grid,
+  .guide-icon-list-compact,
+  .guide-pager,
+  .guide-video-card,
+  .guide-side {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-visual {
+    min-height: 170px;
+  }
+
+  .video-tabs {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    overflow-x: auto;
+  }
+
+  .video-tabs button {
+    min-width: 104px;
   }
 
   .community-steps {
@@ -1981,6 +2855,55 @@ body[data-theme="dark"] .start-panel {
 
   .footer-about {
     grid-column: span 2;
+  }
+
+  .guide-hero {
+    margin-top: 14px;
+    padding: 18px 0;
+  }
+
+  .guide-hero-inner {
+    padding: 20px;
+  }
+
+  .guide-actions,
+  .guide-search div {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-actions {
+    display: grid;
+  }
+
+  .guide-actions .solid-button,
+  .guide-actions .ghost-button,
+  .guide-search button {
+    width: 100%;
+  }
+
+  .guide-layout {
+    gap: 14px;
+  }
+
+  .guide-toc {
+    margin-inline: -2px;
+    padding: 10px;
+  }
+
+  .guide-card {
+    padding: 18px;
+  }
+
+  .guide-video-card {
+    padding: 16px;
+  }
+
+  .video-stage {
+    min-height: 0;
+  }
+
+  .video-placeholder {
+    min-height: 160px;
   }
 
   .newsletter {
