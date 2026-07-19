@@ -2180,6 +2180,42 @@ body[data-theme="dark"] .guide-hero-inner {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.guide-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.guide-photo-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+}
+
+.guide-photo-card img {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  display: block;
+  object-fit: cover;
+}
+
+.guide-photo-card figcaption {
+  padding: 11px 12px 12px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.guide-photo-card strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--ink);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
 .guide-note,
 .guide-warning {
   margin-top: 16px;
@@ -2696,6 +2732,7 @@ body[data-theme="dark"] .guide-hero-inner {
   .guide-columns,
   .guide-card-grid,
   .guide-info-grid,
+  .guide-photo-grid,
   .guide-icon-list-compact,
   .guide-video-card,
   .guide-side {
