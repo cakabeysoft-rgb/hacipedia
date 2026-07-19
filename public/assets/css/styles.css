@@ -1961,7 +1961,7 @@ body[data-theme="dark"] .guide-hero-inner {
 .visual-muzdalifah {
   background:
     linear-gradient(180deg, transparent, rgba(3, 18, 14, 0.62)),
-    url("../img/hac/mina.jpg") center 34% / cover no-repeat;
+    url("../img/hac/muzdalifah.jpg") center / cover no-repeat;
 }
 
 .visual-kurban {
