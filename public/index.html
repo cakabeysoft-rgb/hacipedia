@@ -78,14 +78,20 @@
       <div class="settings-backdrop" data-close-settings></div>
       <section class="settings-dialog" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
         <div class="settings-head">
-          <h2 id="settings-modal-title">Ayarlar</h2>
+          <div>
+            <p class="eyebrow">Hacipedia</p>
+            <h2 id="settings-modal-title">Okuma Paneli</h2>
+          </div>
           <button class="settings-close" type="button" data-close-settings aria-label="Ayarları kapat">×</button>
         </div>
 
         <div class="setting-font-card">
           <div class="setting-title">
             <span class="setting-icon amber">T</span>
-            <strong>Yazı Boyutu</strong>
+            <div>
+              <strong>Metin Ölçeği</strong>
+              <small>Rehber ve soru cevap metinlerini rahat oku</small>
+            </div>
           </div>
           <div class="font-size-control" role="group" aria-label="Yazı boyutu">
             <button type="button" data-font-size="small">Küçük</button>
@@ -98,8 +104,8 @@
           <div class="setting-row">
             <span class="setting-icon"><img id="theme-icon" src="assets/icons/moon.svg" alt="" aria-hidden="true"></span>
             <div>
-              <strong>Gece / Gündüz Modu</strong>
-              <small>Karanlık ve aydınlık tema seçimi</small>
+              <strong>Okuma Teması</strong>
+              <small>Gündüz ve gece görünümü</small>
             </div>
             <button class="switch" type="button" id="theme-toggle" aria-pressed="false" aria-label="Gece modunu aç"></button>
           </div>
@@ -107,8 +113,8 @@
           <div class="setting-row">
             <span class="setting-icon"><img src="assets/icons/bell.svg" alt="" aria-hidden="true"></span>
             <div>
-              <strong>Bildirimler</strong>
-              <small>Mikat alarmı ve önemli hatırlatmalar için</small>
+              <strong>Hatırlatmalar</strong>
+              <small>Mikat, valiz ve hazırlık notları için</small>
             </div>
             <button class="switch" type="button" id="notification-toggle" aria-pressed="false" aria-label="Bildirimleri aç"></button>
           </div>
@@ -117,8 +123,8 @@
         <div class="privacy-note">
           <span class="setting-icon green"><img src="assets/icons/shield-check.svg" alt="" aria-hidden="true"></span>
           <div>
-            <strong>Güvenlik & Gizlilik</strong>
-            <p>Bu ayarlar yalnızca tarayıcınızda saklanır. Yazı boyutu, tema ve bildirim tercihleri sunucuya gönderilmez.</p>
+            <strong>Gizlilik Notu</strong>
+            <p>Okuma tercihlerin bu cihazda saklanır. Hacipedia bu panelden kişisel veri toplamaz.</p>
           </div>
         </div>
 
@@ -126,14 +132,14 @@
           <div class="install-row">
             <span><img src="assets/icons/device-mobile.svg" alt="" aria-hidden="true"></span>
             <div>
-              <strong>Uygulamayı Yükle</strong>
-              <p>İnternetin zayıf olduğu yerlerde de hızlı kullanabilmek için ana ekrana ekleyebilirsiniz.</p>
+              <strong>Çevrimdışı Kullanım</strong>
+              <p>İhtiyaç listesi ve temel rehberleri telefona kaydetme özelliği yakında eklenecek.</p>
             </div>
           </div>
-          <button type="button">Yükle</button>
+          <button type="button" disabled>Yakında</button>
         </div>
 
-        <p class="app-version">v 0.1</p>
+        <p class="app-version">Hacipedia okuma tercihleri</p>
       </section>
     </div>
 
